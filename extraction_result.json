@@ -1,0 +1,125 @@
+{
+  "header_details": {
+    "client": "Rahul Patel",
+    "plant": "Indica",
+    "swbd": "Odhnoi",
+    "feeder": "Indica",
+    "tested_on": "26/03/26",
+    "tested_by": "Yash Shah"
+  },
+  "sections": {
+    "1_0_current_transformer_test": {
+      "1_1_metering_core": {
+        "table_columns": [
+          "phase",
+          "sr_no",
+          "ratio",
+          "va",
+          "accuracy_class",
+          "polarity",
+          "ct_resistance_ohm",
+          "primary_injected_current_a",
+          "secondary_current",
+          "meter_reading_amp"
+        ],
+        "rows": [
+          {
+            "phase": "R",
+            "sr_no": "1",
+            "ratio": "11",
+            "va": "14",
+            "accuracy_class": "16",
+            "polarity": "50",
+            "ct_resistance_ohm": "90",
+            "primary_injected_current_a": "80",
+            "secondary_current": "930",
+            "meter_reading_amp": "200"
+          },
+          {
+            "phase": "Y",
+            "sr_no": "2",
+            "ratio": "12",
+            "va": "15",
+            "accuracy_class": "19",
+            "polarity": "51",
+            "ct_resistance_ohm": "91",
+            "primary_injected_current_a": "85",
+            "secondary_current": "500",
+            "meter_reading_amp": "200"
+          },
+          {
+            "phase": "B",
+            "sr_no": "3",
+            "ratio": "13",
+            "va": "16",
+            "accuracy_class": "20",
+            "polarity": "60",
+            "ct_resistance_ohm": "92",
+            "primary_injected_current_a": "90",
+            "secondary_current": "600",
+            "meter_reading_amp": "100"
+          }
+        ]
+      },
+      "1_2_protection_core": {
+        "table_columns": [
+          "phase",
+          "sr_no",
+          "ratio",
+          "va",
+          "accuracy_class",
+          "polarity",
+          "ct_resistance_ohm",
+          "primary_injected_current_a",
+          "secondary_current",
+          "meter_reading_amp"
+        ],
+        "rows": [
+          {
+            "phase": "R",
+            "sr_no": "1",
+            "ratio": "10",
+            "va": "60",
+            "accuracy_class": "85",
+            "polarity": "100",
+            "ct_resistance_ohm": "160",
+            "primary_injected_current_a": "20",
+            "secondary_current": "22",
+            "meter_reading_amp": ""
+          },
+          {
+            "phase": "Y",
+            "sr_no": "2",
+            "ratio": "11",
+            "va": "65",
+            "accuracy_class": "90",
+            "polarity": "150",
+            "ct_resistance_ohm": "170",
+            "primary_injected_current_a": "25",
+            "secondary_current": "23",
+            "meter_reading_amp": ""
+          },
+          {
+            "phase": "B",
+            "sr_no": "3",
+            "ratio": "12",
+            "va": "80",
+            "accuracy_class": "90",
+            "polarity": "160",
+            "ct_resistance_ohm": "190",
+            "primary_injected_current_a": "60",
+            "secondary_current": "60",
+            "meter_reading_amp": ""
+          }
+        ]
+      }
+    }
+  },
+  "remarks": "",
+  "raw_metadata": {
+    "document_type": "Test Certificate",
+    "total_tables": "2",
+    "language": "English"
+  },
+  "confidence_score": 0.98
+}

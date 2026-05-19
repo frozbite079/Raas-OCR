@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+python-multipart
+langchain
+langchain-openai
+pdf2image
+pillow
+python-dotenv
+beautifulsoup4
+lxml
+requests
+PySide6
+mlflow
+pandas

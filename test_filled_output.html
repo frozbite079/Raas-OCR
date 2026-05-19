@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Test Certificate of Power Transformer</title>
+<style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            color: #000;
+            background: #fff;
+            font-size: 12px;
+            line-height: 1.08;
+        }
+        .report-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 5mm 6mm;
+            border: 0;
+            box-shadow: none;
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        h2 {
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0;
+            padding: 1px 0 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin: 12px 0 4px 0;
+            font-size: 12.5px;
+        }
+        .bold {
+            font-weight: bold;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 2px 4px;
+            vertical-align: middle;
+        }
+        th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Specific Table Adjustments */
+        .title-table {
+            border: 1.5px solid #000;
+            margin-bottom: 12px;
+        }
+        .title-table td {
+            border: 1px solid #000;
+        }
+
+        .nameplate-table td:nth-child(odd) {
+            width: 20%;
+            font-weight: normal;
+        }
+        .nameplate-table td:nth-child(even) {
+            width: 30%;
+        }
+
+        .ir-table {
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .ratio-table th, .ratio-table td {
+            text-align: center;
+        }
+        .ratio-table td:nth-child(2) {
+            text-align: left;
+        }
+
+        .mag-table td {
+            text-align: center;
+        }
+        .mag-table td:first-child {
+            text-align: left;
+        }
+
+        .vector-table td {
+            width: 16.66%;
+        }
+        .vector-table td:nth-child(odd) {
+            font-weight: bold;
+        }
+
+        .conformity-table td:first-child {
+            width: 5%;
+            text-align: center;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        .conformity-table td:nth-child(2) {
+            width: 75%;
+        }
+        .conformity-table td:nth-child(3) {
+            width: 20%;
+        }
+        .conformity-table td:nth-child(2) {
+            font-size: 11.5px;
+            line-height: 1.08;
+        }
+
+        /* Input Styles */
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            min-height: 16px;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            padding: 0 2px;
+            color: #000;
+            box-sizing: border-box;
+            line-height: 1.05;
+        }
+        input[type="text"]:focus {
+            background-color: #eaf3ff;
+        }
+        .inline-input {
+            border-bottom: 1px solid #000 !important;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+            min-width: 70px;
+            vertical-align: baseline;
+        }
+
+        /* Typography spacing */
+        .inline-text {
+            display: inline-block;
+            width: 110px;
+            font-weight: bold;
+        }
+
+        /* Print adjustments */
+        @media print {
+            body { background: none; margin: 0; }
+            .report-container { box-shadow: none; border: none; padding: 0; width: auto; min-height: auto; }
+            input[type="text"]:focus { background-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+<div class="report-container">
+<!-- Title and Top Metadata Table -->
+<table class="title-table">
+<tr>
+<td colspan="4"><h2>TEST CERTIFICATE OF POWER TRANSFORMER</h2></td>
+</tr>
+<tr>
+<td class="bold" style="width: 15%;">Client</td>
+<td style="width: 35%;"><input data-field="Client" type="text" value="ABC Corporation"/></td>
+<td class="bold" style="width: 15%;">Tested On</td>
+<td style="width: 35%;"><input data-field="Tested On" type="text" value="2024-01-15"/></td>
+</tr>
+<tr>
+<td class="bold">Plant</td>
+<td><input data-field="Plant" type="text" value="Power Station A"/></td>
+<td class="bold">Tested By</td>
+<td><input data-field="Tested By" type="text" value="John Doe"/></td>
+</tr>
+<tr>
+<td class="bold">Location</td>
+<td><input data-field="Location" type="text" value="Mumbai"/></td>
+<td class="bold">Comp. Code</td>
+<td><input data-field="Comp. Code" type="text" value="PC-1234"/></td>
+</tr>
+</table>
+<!-- 1.0 Name Plate Details -->
+<div class="section-title">1.0      NAME PLATE DETAILS      :</div>
+<table class="nameplate-table">
+<tr>
+<td class="bold">Make</td>
+<td><input data-field="Make" type="text" value="ABB"/></td>
+<td class="bold">Vector Group</td>
+<td><input data-field="Vector Group" type="text" value="Dyn11"/></td>
+</tr>
+<tr>
+<td class="bold">Serial No.</td>
+<td><input data-field="Serial No." type="text" value="SN-2024-001"/></td>
+<td class="bold">% Impedance</td>
+<td><input data-field="% Impedance" type="text" value="10.5"/></td>
+</tr>
+<tr>
+<td class="bold">Rating in MVA</td>
+<td><input data-field="Rating in MVA" type="text" value="25"/></td>
+<td class="bold">Tap Changer</td>
+<td><input data-field="Tap Changer" type="text" value="OLTC"/></td>
+</tr>
+<tr>
+<td class="bold">Voltage Ratio</td>
+<td><input data-field="Voltage Ratio" type="text" value="220/33 kV"/></td>
+<td class="bold">No. Of Taps</td>
+<td><input data-field="No. Of Taps" type="text" value="17"/></td>
+</tr>
+<tr>
+<td class="bold">Type of Cooling</td>
+<td><input data-field="Type of Cooling" type="text" value="ONAF"/></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<!-- 2.0 Insulation Resistance Test -->
+<div class="section-title" style="margin-top: 30px;">2.0      INSULATION RESISTANCE TEST      :</div>
+<div style="margin-bottom: 5px;">
+<div><span class="inline-text" style="font-weight: normal;">Megger Used</span> : <input class="inline-input" data-field="Megger Used KV" style="width: 72px;" type="text"/> KV</div>
+<div><span class="inline-text" style="font-weight: normal;">Range</span> : <input class="inline-input" data-field="Range M-Ohm" style="width: 72px;" type="text"/> M-Ω</div>
+</div>
+<table class="ir-table">
+<tr>
+<th style="width: 33.33%;">H. V. – E</th>
+<th style="width: 33.33%;">L.V. - E</th>
+<th style="width: 33.33%;">H.V – L.V.</th>
+</tr>
+<tr>
+<td><input data-field="IR H.V. - E" style="text-align: center;" type="text"/></td>
+<td><input data-field="IR L.V. - E" style="text-align: center;" type="text"/></td>
+<td><input data-field="IR H.V - L.V." style="text-align: center;" type="text"/></td>
+</tr>
+</table>
+<!-- 3.0 Voltage Ratio Test -->
+<div class="section-title" style="margin-top: 30px;">3.0      VOLTAGE RATIO &amp; TAP CONTINUITY TEST      :</div>
+<table class="ratio-table">
+<tr>
+<td class="bold" colspan="8" style="text-align: left;">Measured voltage on LV Side</td>
+<td class="bold" rowspan="2" style="width: 12%;">Tap continuity</td>
+</tr>
+<tr>
+<td class="bold" style="width: 10%;">Tap Position</td>
+<td class="bold" style="width: 18%;">Applied Voltage</td>
+<td class="bold">r-y</td>
+<td class="bold">y-b</td>
+<td class="bold">b-r</td>
+<td class="bold">r-n</td>
+<td class="bold">y-n</td>
+<td class="bold">b-n</td>
+</tr>
+<tr><td>01</td><td><input data-field="Tap 01 Applied Voltage" type="text"/></td><td><input data-field="Tap 01 r-y" type="text"/></td><td><input data-field="Tap 01 y-b" type="text"/></td><td><input data-field="Tap 01 b-r" type="text"/></td><td><input data-field="Tap 01 r-n" type="text"/></td><td><input data-field="Tap 01 y-n" type="text"/></td><td><input data-field="Tap 01 b-n" type="text"/></td><td><input data-field="Tap 01 Tap continuity" type="text"/></td></tr>
+<tr><td>02</td><td><input data-field="Tap 02 Applied Voltage" type="text"/></td><td><input data-field="Tap 02 r-y" type="text"/></td><td><input data-field="Tap 02 y-b" type="text"/></td><td><input data-field="Tap 02 b-r" type="text"/></td><td><input data-field="Tap 02 r-n" type="text"/></td><td><input data-field="Tap 02 y-n" type="text"/></td><td><input data-field="Tap 02 b-n" type="text"/></td><td><input data-field="Tap 02 Tap continuity" type="text"/></td></tr>
+<tr><td>03</td><td><input data-field="Tap 03 Applied Voltage" type="text"/></td><td><input data-field="Tap 03 r-y" type="text"/></td><td><input data-field="Tap 03 y-b" type="text"/></td><td><input data-field="Tap 03 b-r" type="text"/></td><td><input data-field="Tap 03 r-n" type="text"/></td><td><input data-field="Tap 03 y-n" type="text"/></td><td><input data-field="Tap 03 b-n" type="text"/></td><td><input data-field="Tap 03 Tap continuity" type="text"/></td></tr>
+<tr><td>04</td><td><input data-field="Tap 04 Applied Voltage" type="text"/></td><td><input data-field="Tap 04 r-y" type="text"/></td><td><input data-field="Tap 04 y-b" type="text"/></td><td><input data-field="Tap 04 b-r" type="text"/></td><td><input data-field="Tap 04 r-n" type="text"/></td><td><input data-field="Tap 04 y-n" type="text"/></td><td><input data-field="Tap 04 b-n" type="text"/></td><td><input data-field="Tap 04 Tap continuity" type="text"/></td></tr>
+<tr><td>05</td><td><input data-field="Tap 05 Applied Voltage" type="text"/></td><td><input data-field="Tap 05 r-y" type="text"/></td><td><input data-field="Tap 05 y-b" type="text"/></td><td><input data-field="Tap 05 b-r" type="text"/></td><td><input data-field="Tap 05 r-n" type="text"/></td><td><input data-field="Tap 05 y-n" type="text"/></td><td><input data-field="Tap 05 b-n" type="text"/></td><td><input data-field="Tap 05 Tap continuity" type="text"/></td></tr>
+<tr><td>06</td><td><input data-field="Tap 06 Applied Voltage" type="text"/></td><td><input data-field="Tap 06 r-y" type="text"/></td><td><input data-field="Tap 06 y-b" type="text"/></td><td><input data-field="Tap 06 b-r" type="text"/></td><td><input data-field="Tap 06 r-n" type="text"/></td><td><input data-field="Tap 06 y-n" type="text"/></td><td><input data-field="Tap 06 b-n" type="text"/></td><td><input data-field="Tap 06 Tap continuity" type="text"/></td></tr>
+<tr><td>07</td><td><input data-field="Tap 07 Applied Voltage" type="text"/></td><td><input data-field="Tap 07 r-y" type="text"/></td><td><input data-field="Tap 07 y-b" type="text"/></td><td><input data-field="Tap 07 b-r" type="text"/></td><td><input data-field="Tap 07 r-n" type="text"/></td><td><input data-field="Tap 07 y-n" type="text"/></td><td><input data-field="Tap 07 b-n" type="text"/></td><td><input data-field="Tap 07 Tap continuity" type="text"/></td></tr>
+</table>
+<!-- 4.0 Magnetic Balance Test -->
+<div class="section-title" style="margin-top: 30px;">4.0      MAGNETIC BALANCE TEST      :</div>
+<table class="mag-table">
+<tr>
+<td class="bold" style="width: 38%;">Supply Voltage (HV Side)</td>
+<td class="bold" colspan="3" style="text-align: left;">Voltage Measured (LV Side)</td>
+</tr>
+<tr>
+<td></td>
+<td class="bold" style="width: 20%;">r – n</td>
+<td class="bold" style="width: 20%;">y – n</td>
+<td class="bold" style="width: 20%;">b – n</td>
+</tr>
+<tr><td class="bold">R – Y <input data-field="Magnetic Balance R-Y Supply Voltage" style="width:60%; display:inline-block;" type="text"/></td><td><input data-field="Magnetic Balance R-Y r-n" type="text"/></td><td><input data-field="Magnetic Balance R-Y y-n" type="text"/></td><td><input data-field="Magnetic Balance R-Y b-n" type="text"/></td></tr>
+<tr><td class="bold">Y – B <input data-field="Magnetic Balance Y-B Supply Voltage" style="width:60%; display:inline-block;" type="text"/></td><td><input data-field="Magnetic Balance Y-B r-n" type="text"/></td><td><input data-field="Magnetic Balance Y-B y-n" type="text"/></td><td><input data-field="Magnetic Balance Y-B b-n" type="text"/></td></tr>
+<tr><td class="bold">B – R <input data-field="Magnetic Balance B-R Supply Voltage" style="width:60%; display:inline-block;" type="text"/></td><td><input data-field="Magnetic Balance B-R r-n" type="text"/></td><td><input data-field="Magnetic Balance B-R y-n" type="text"/></td><td><input data-field="Magnetic Balance B-R b-n" type="text"/></td></tr>
+</table>
+<!-- 5.0 Vector Group Test -->
+<div class="section-title" style="margin-top: 30px;">5.0      VECTOR GROUP TEST      :</div>
+<div style="margin: 10px 0 10px 30px; line-height: 1.55;">
+<div>Short 1R-2R and apply 440V on HT side.</div>
+<div>Measured Voltage      : RY- <input class="inline-input" data-field="Vector Group Test Measured Voltage RY" style="width: 62px;" type="text" value="Dyn11"/>,   YB- <input class="inline-input" data-field="Vector Group Test Measured Voltage YB" style="width: 62px;" type="text" value="Dyn11"/>,   BR- <input class="inline-input" data-field="Vector Group Test Measured Voltage BR" style="width: 62px;" type="text" value="Dyn11"/></div>
+</div>
+<table class="vector-table">
+<tr>
+<td>1R-2R</td><td><input data-field="Vector Group 1R-2R" type="text" value="Dyn11"/></td>
+<td>1Y-2R</td><td><input data-field="Vector Group 1Y-2R" type="text" value="Dyn11"/></td>
+<td>1B-2R</td><td><input data-field="Vector Group 1B-2R" type="text" value="Dyn11"/></td>
+</tr>
+<tr>
+<td>1R-2Y</td><td><input data-field="Vector Group 1R-2Y" type="text" value="Dyn11"/></td>
+<td>1Y-2Y</td><td><input data-field="Vector Group 1Y-2Y" type="text" value="Dyn11"/></td>
+<td>1B-2Y</td><td><input data-field="Vector Group 1B-2Y" type="text" value="Dyn11"/></td>
+</tr>
+<tr>
+<td>1R-2B</td><td><input data-field="Vector Group 1R-2B" type="text" value="Dyn11"/></td>
+<td>1Y-2B</td><td><input data-field="Vector Group 1Y-2B" type="text" value="Dyn11"/></td>
+<td>1B-2B</td><td><input data-field="Vector Group 1B-2B" type="text" value="Dyn11"/></td>
+</tr>
+<tr>
+<td>1RN</td><td><input data-field="Vector Group 1RN" type="text" value="Dyn11"/></td>
+<td>1YN</td><td><input data-field="Vector Group 1YN" type="text" value="Dyn11"/></td>
+<td>1BN</td><td><input data-field="Vector Group 1BN" type="text" value="Dyn11"/></td>
+</tr>
+<tr>
+<td>2RN</td><td><input data-field="Vector Group 2RN" type="text" value="Dyn11"/></td>
+<td>2YN</td><td><input data-field="Vector Group 2YN" type="text" value="Dyn11"/></td>
+<td>2BN</td><td><input data-field="Vector Group 2BN" type="text" value="Dyn11"/></td>
+</tr>
+</table>
+<!-- 6.0 Conformity Tests -->
+<div class="section-title" style="margin-top: 30px;">6.0      CONFORMITY TESTS      :</div>
+<table class="conformity-table">
+<tr><td>1</td><td>Visual External damage to any part of the transformer</td><td><input data-field="1. Visual External damage to any part of the transformer" type="text"/></td></tr>
+<tr><td>2</td><td>Colour of silica jell / oil level in bottom seal/Leakage if any</td><td><input data-field="2. Colour of silica jell / oil level in bottom seal/Leakage if any" type="text"/></td></tr>
+<tr><td>3</td><td>Proper Connections of body and neutral earthling</td><td><input data-field="3. Proper Connections of body and neutral earthling" type="text"/></td></tr>
+<tr><td>4</td><td>Buchholz relay test for alarm/trip contact float operations</td><td><input data-field="4. Buchholz relay test for alarm/trip contact float operations" type="text"/></td></tr>
+<tr><td>5</td><td>Winding/oil temperature indicator alarm/trip contact operations</td><td><input data-field="5. Winding/oil temperature indicator alarm/trip contact operations" type="text"/></td></tr>
+<tr><td>6</td><td>MOG float switch contact operation</td><td><input data-field="6. MOG float switch contact operation" type="text"/></td></tr>
+<tr><td>7</td><td>Local / remote operations of OLTC</td><td><input data-field="7. Local / remote operations of OLTC" type="text"/></td></tr>
+<tr>
+<td>8</td>
+<td>
+                Cooling System and Oil Circulation System Check<br/>
+                    a) ONAN System: <input class="inline-input" data-field="8a. Cooling System ONAN System" style="width: 80px;" type="text"/><br/>
+                    b) ONAF System: <input class="inline-input" data-field="8b. Cooling System ONAF System" style="width: 80px;" type="text"/><br/>
+                    c) OFAF System: <input class="inline-input" data-field="8c. Cooling System OFAF System" style="width: 80px;" type="text"/>
+</td>
+<td></td>
+</tr>
+</table>
+<!-- 7.0 Remarks -->
+<div class="section-title" style="margin-top: 14px; display: flex; align-items: flex-start;">
+<span style="width: 42px;">7.0</span>
+<span style="width: 95px;">REMARKS</span>
+<span>:</span>
+<input class="inline-input" data-field="Remarks" style="flex-grow: 1; margin-left: 8px; border-bottom: 0px !important;" type="text"/>
+</div>
+</div>
+</body>
+</html>
