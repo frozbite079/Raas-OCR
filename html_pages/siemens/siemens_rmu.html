@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIEMENS RMU</title>
+    <meta name="description"
+        content="Professional VCB and HT Panel maintenance checklists with editable fields and print-ready layout.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #007bb8;
+            --border-color: #333;
+            --bg-color: #f4f7f9;
+            --page-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --editable-bg: #fffdf2;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Page Container */
+        .page-container {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .report-page {
+            background: var(--page-bg);
+            padding: 40px;
+            min-height: 297mm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            position: relative;
+            width: 100%;
+        }
+
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sp-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .siemens-brand {
+            text-align: right;
+        }
+
+        .siemens-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: #00828a;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .siemens-sub {
+            font-size: 8px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 11px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        .main-title-cell {
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 10px !important;
+            background-color: #fff;
+        }
+
+        .section-header {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 15px 0 5px 0;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .section-header span {
+            margin-right: 10px;
+        }
+
+        .bg-gray {
+            background-color: #f9f9f9;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: 600;
+        }
+
+        /* Editable Styles */
+        [contenteditable="true"] {
+            outline: none;
+            min-height: 1.2em;
+            cursor: text;
+            transition: background-color 0.2s;
+        }
+
+        [contenteditable="true"]:hover {
+            background-color: rgba(0, 123, 184, 0.05);
+        }
+
+        [contenteditable="true"]:focus {
+            background-color: #fff;
+            box-shadow: inset 0 0 0 1px var(--secondary-color);
+        }
+
+        /* Action Buttons */
+        .actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        @media print {
+            .actions {
+                display: none;
+            }
+
+            [contenteditable="true"]:focus {
+                box-shadow: none;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 10mm;
+                page-break-after: always;
+                border: none;
+            }
+
+            .page-container {
+                gap: 0;
+            }
+        }
+
+        /* Specific Table Layouts */
+        .info-table td {
+            width: 15%;
+        }
+
+        .info-table td:nth-child(even) {
+            width: 35%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="report-page">
+            <div class="header">
+                <div class="sp-logo">
+                    <div style="border: 2px solid #003366; padding: 2px; width: 80px; text-align: center;">
+                        <span style="font-size: 28px; font-weight: 900; color: #003366;">S &amp; P</span>
+                        <div style="font-size: 6px; color: #003366; border-top: 1px solid #003366; margin-top: 2px; padding-top: 2px;">
+                            Elec Infra Pvt. Ltd.</div>
+                    </div>
+                </div>
+                <div class="siemens-brand">
+                    <div class="siemens-logo">SIEMENS</div>
+                    <div class="siemens-sub">Authorized Distributor of RMU &amp; CSS</div>
+                </div>
+            </div>
+
+    <table class="info-table" style="font-size: 10px;">
+        <tr>
+            <td colspan="4" class="main-title-cell text-center font-bold" style="font-size: 14px;">SIEMENS RMU
+            </td>
+        </tr>
+        <tr>
+            <td class="font-bold">CLINT</td>
+            <td contenteditable="true" data-field="Client" data-hint="customer/client name (text)"></td>
+            <td class="font-bold">VOLTEGE</td>
+            <td contenteditable="true" data-field="Voltage" data-hint="voltage in KV, small number like 11, 33, 50, 66, 80"></td>
+        </tr>
+        <tr>
+            <td class="font-bold">LOCATION</td>
+            <td contenteditable="true" data-field="Location" data-hint="city or place name (text)"></td>
+            <td class="font-bold">RATING</td>
+            <td contenteditable="true" data-field="Rating" data-hint="MVA rating, decimal number like 8.5, 10, 16"></td>
+        </tr>
+        <tr>
+            <td class="font-bold">PANAL NO.</td>
+            <td contenteditable="true" data-field="Panel No." data-hint="short panel number, 1-3 digits like 56, 12"></td>
+            <td class="font-bold">RELAY</td>
+            <td contenteditable="true" data-field="Relay" data-hint="relay number, 2-3 digits like 60, 100"></td>
+        </tr>
+        <tr>
+            <td class="font-bold">S/S No.</td>
+            <td contenteditable="true" data-field="S/S No." data-hint="substation number, short 2-3 digits like 56, 12, 8"></td>
+            <td class="font-bold">SR No.</td>
+            <td contenteditable="true" data-field="SR No." data-hint="serial number, 2-3 digits like 60, 1, 100"></td>
+        </tr>
+        <tr>
+            <td class="font-bold">SWBD</td>
+            <td contenteditable="true" data-field="SWBD" data-hint="switchboard ID, 4-digit number like 6650, 6530, 1234"></td>
+            <td class="font-bold">TYPE</td>
+            <td contenteditable="true" data-field="Type" data-hint="type/mode text like Night, Day, CSS, Auto"></td>
+        </tr>
+        <tr>
+            <td class="font-bold">DATE</td>
+            <td contenteditable="true" data-field="Date" data-hint="date format DD/MM/YY like 23/03/25"></td>
+            <td class="font-bold">SERVICED BY</td>
+            <td contenteditable="true" data-field="Serviced By" data-hint="technician name or designation (text)"></td>
+        </tr>
+    </table>
+
+    <table>
+        <thead>
+            <tr class="bg-gray text-center font-bold">
+                <td style="width: 50px;">Sr. No.</td>
+                <td>Check Points Description</td>
+                <td style="width: 100px;">Status</td>
+                <td style="width: 120px;">Remarks</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">1</td>
+                <td>Visual inspection of RMU for any damage / abnormality</td>
+                <td class="text-center" contenteditable="true" data-field="1 Visual inspection of RMU Status"></td>
+                <td contenteditable="true" data-field="1 Visual inspection of RMU Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td>Through cleaning of RMU</td>
+                <td class="text-center" contenteditable="true" data-field="2 Through cleaning of RMU Status"></td>
+                <td contenteditable="true" data-field="2 Through cleaning of RMU Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td>Lubrication of all moving parts of mechanism</td>
+                <td class="text-center" contenteditable="true" data-field="3 Lubrication of all moving parts Status"></td>
+                <td contenteditable="true" data-field="3 Lubrication of all moving parts Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">4</td>
+                <td>Checking of gear box healthiness.</td>
+                <td class="text-center" contenteditable="true" data-field="4 Checking of gear box healthiness Status"></td>
+                <td contenteditable="true" data-field="4 Checking of gear box healthiness Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">5</td>
+                <td>Checking of closing and tripping mechanism</td>
+                <td class="text-center" contenteditable="true" data-field="5 Checking of closing and tripping mechanism Status"></td>
+                <td contenteditable="true" data-field="5 Checking of closing and tripping mechanism Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">6</td>
+                <td>Checking Aux. switch operation and connection tightness</td>
+                <td class="text-center" contenteditable="true" data-field="6 Checking Aux. switch operation Status"></td>
+                <td contenteditable="true" data-field="6 Checking Aux. switch operation Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">7</td>
+                <td>Checking of spring charging mechanism and limit switch operation</td>
+                <td class="text-center" contenteditable="true" data-field="7 Checking of spring charging mechanism Status"></td>
+                <td contenteditable="true" data-field="7 Checking of spring charging mechanism Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">8</td>
+                <td>Checking of closing coil resistance and record</td>
+                <td class="text-center" contenteditable="true" data-field="8 Checking of closing coil resistance"></td>
+                <td contenteditable="true" data-field="8 Remark"></td>
+            </tr>
+            <tr>
+                <td class="text-center">9</td>
+                <td>Checking of tripping coil resistance and record</td>
+                <td class="text-center" contenteditable="true" data-field="9 Checking of tripping coil resistance"></td>
+                <td class="text-center" contenteditable="true" data-field="9 Remark"></td>
+            </tr>
+            <tr>
+                <td class="text-center">10</td>
+                <td>Checking of spring charging motor resistance and record</td>
+                <td class="text-center" contenteditable="true" data-field="10 Checking of spring charging motor resistance"></td>
+                <td contenteditable="true" data-field="10 Remark"></td>
+            </tr>
+            <tr>
+                <td class="text-center">11</td>
+                <td>Checking of all cir clips and lock washers</td>
+                <td class="text-center" contenteditable="true" data-field="11 Checking of all cir clips and lock washers Status"></td>
+                <td contenteditable="true" data-field="11 Checking of all cir clips and lock washers Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">12</td>
+                <td>Checking of power connection tightness</td>
+                <td class="text-center" contenteditable="true" data-field="12 Checking of power connection tightness Status"></td>
+                <td contenteditable="true" data-field="12 Checking of power connection tightness Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">13</td>
+                <td>Checking ON/OFF operation of RMU mechanically</td>
+                <td class="text-center" contenteditable="true" data-field="13 Checking ON/OFF operation of RMU Status"></td>
+                <td contenteditable="true" data-field="13 Checking ON/OFF operation of RMU Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">14</td>
+                <td>Spares Replaced/ Required to Attend and Rectify the Problem</td>
+                <td class="text-center" contenteditable="true" data-field="14 Spares Replaced/Required Status"></td>
+                <td contenteditable="true" data-field="14 Spares Replaced/Required Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">15</td>
+                <td>After service Of RMU working condition</td>
+                <td class="text-center" contenteditable="true" data-field="15 After service Of RMU working condition Status"></td>
+                <td contenteditable="true" data-field="15 After service Of RMU working condition Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">16</td>
+                <td>SF6 Gas Pressure</td>
+                <td class="text-center" contenteditable="true" data-field="16 SF6 Gas Pressure Status"></td>
+                <td contenteditable="true" data-field="16 SF6 Gas Pressure Remarks"></td>
+            </tr>
+            <tr>
+                <td class="text-center">17</td>
+                <td>INSULATION RESISTANCE CHECK ( Ω)</td>
+                <td colspan="2" style="padding: 0;">
+                    <table style="margin: 0; border: none; width: 100%;">
+                        <tr class="text-center font-bold">
+                            <td style="border-top: none; border-left: none;">R</td>
+                            <td style="border-top: none;">Y</td>
+                            <td style="border-top: none; border-right: none;">B</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td style="border-bottom: none; border-left: none;" contenteditable="true" data-field="IR Check R"></td>
+                            <td style="border-bottom: none;" contenteditable="true" data-field="IR Check Y"></td>
+                            <td style="border-bottom: none; border-right: none;" contenteditable="true" data-field="IR Check B"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Phase TO Phase</td>
+                <td colspan="2" style="padding: 0;">
+                    <table style="margin: 0; border: none; width: 100%;">
+                        <tr class="text-center">
+                            <td style="border: none;" contenteditable="true" data-field="IR Phase to Phase R"></td>
+                            <td style="border-top: none; border-bottom: none;" contenteditable="true" data-field="IR Phase to Phase Y"></td>
+                            <td style="border: none;" contenteditable="true" data-field="IR Phase to Phase B"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Phase TO Earth</td>
+                <td colspan="2" style="padding: 0;">
+                    <table style="margin: 0; border: none; width: 100%;">
+                        <tr class="text-center">
+                            <td style="border: none;" contenteditable="true" data-field="IR Phase to Earth R"></td>
+                            <td style="border-top: none; border-bottom: none;" contenteditable="true" data-field="IR Phase to Earth Y"></td>
+                            <td style="border: none;" contenteditable="true" data-field="IR Phase to Earth B"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="margin-top: 15px;">
+        <thead>
+            <tr class="bg-gray text-center font-bold">
+                <td style="width: 40px;">Ph</td>
+                <td>CT sr. no.</td>
+                <td>Ratio</td>
+                <td>VA</td>
+                <td>Class</td>
+                <td>Polarity</td>
+                <td>Primary Current</td>
+                <td>Secondary Current</td>
+                <td>Resist.</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td>R</td>
+                <td contenteditable="true" data-field="CT R Sr. No."></td>
+                <td contenteditable="true" data-field="CT R Ratio"></td>
+                <td contenteditable="true" data-field="CT R VA"></td>
+                <td contenteditable="true" data-field="CT R Class"></td>
+                <td contenteditable="true" data-field="CT R Polarity"></td>
+                <td contenteditable="true" data-field="CT R Primary Current"></td>
+                <td contenteditable="true" data-field="CT R Secondary Current"></td>
+                <td contenteditable="true" data-field="CT R Resistance"></td>
+            </tr>
+            <tr class="text-center">
+                <td>Y</td>
+                <td contenteditable="true" data-field="CT Y Sr. No."></td>
+                <td contenteditable="true" data-field="CT Y Ratio"></td>
+                <td contenteditable="true" data-field="CT Y VA"></td>
+                <td contenteditable="true" data-field="CT Y Class"></td>
+                <td contenteditable="true" data-field="CT Y Polarity"></td>
+                <td contenteditable="true" data-field="CT Y Primary Current"></td>
+                <td contenteditable="true" data-field="CT Y Secondary Current"></td>
+                <td contenteditable="true" data-field="CT Y Resistance"></td>
+            </tr>
+            <tr class="text-center">
+                <td>B</td>
+                <td contenteditable="true" data-field="CT B Sr. No."></td>
+                <td contenteditable="true" data-field="CT B Ratio"></td>
+                <td contenteditable="true" data-field="CT B VA"></td>
+                <td contenteditable="true" data-field="CT B Class"></td>
+                <td contenteditable="true" data-field="CT B Polarity"></td>
+                <td contenteditable="true" data-field="CT B Primary Current"></td>
+                <td contenteditable="true" data-field="CT B Secondary Current"></td>
+                <td contenteditable="true" data-field="CT B Resistance"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 15px; font-size: 11px;">
+        <span class="font-bold">Remark :</span>
+        <span contenteditable="true" data-field="Remark"></span>
+    </div>
+    </div>
+
+    </div>
+    </body>
+
+</html>

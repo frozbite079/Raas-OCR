@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT Panel Preventive Maintenance Checklist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #007bb8;
+            --border-color: #333;
+            --bg-color: #f4f7f9;
+            --page-bg: #ffffff;
+            --text-color: #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            /* padding: 40px 20px; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .report-page {
+            background: var(--page-bg);
+            padding: 40px;
+            min-height: 297mm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            position: relative;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .siemens-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: #00828a;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .siemens-sub {
+            font-size: 8px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 11px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        .main-title-cell {
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 10px !important;
+            background-color: #fff;
+        }
+
+        .section-header {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 15px 0 5px 0;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .section-header span {
+            margin-right: 10px;
+        }
+
+        .bg-gray {
+            background-color: #f9f9f9;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: 600;
+        }
+
+        [contenteditable="true"] {
+            outline: none;
+            min-height: 1.2em;
+            cursor: text;
+            transition: background-color 0.2s;
+        }
+
+        [contenteditable="true"]:hover {
+            background-color: rgba(0, 123, 184, 0.05);
+        }
+
+        [contenteditable="true"]:focus {
+            background-color: #fff;
+            box-shadow: inset 0 0 0 1px var(--secondary-color);
+        }
+
+        .info-table td {
+            width: 15%;
+        }
+
+        .info-table td:nth-child(even) {
+            width: 35%;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 10mm;
+                page-break-after: always;
+                border: none;
+            }
+
+            .page-container {
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="report-page">
+            <div class="header">
+                <div class="sp-logo">
+                    <div style="border: 2px solid #003366; padding: 2px; width: 80px; text-align: center;">
+                        <span style="font-size: 28px; font-weight: 900; color: #003366;">S &amp; P</span>
+                        <div
+                            style="font-size: 6px; color: #003366; border-top: 1px solid #003366; margin-top: 2px; padding-top: 2px;">
+                            Elec Infra Pvt. Ltd.</div>
+                    </div>
+                </div>
+                <div class="siemens-brand">
+                    <div class="siemens-logo">SIEMENS</div>
+                    <div class="siemens-sub">Authorized Distributor of RMU &amp; CSS</div>
+                </div>
+            </div>
+
+            <table class="info-table">
+                <tr>
+                    <td colspan="4" class="main-title-cell text-center font-bold">HT PANEL PREVENTIVE MAINTENANCE
+                        CHECKLIST</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">CUSTOMER</td>
+                    <td contenteditable="true" data-field="Customer" data-hint="customer/client name (text)"></td>
+                    <td class="font-bold">BOARD NO</td>
+                    <td contenteditable="true" data-field="Board No" data-hint="board number (text or number)"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">SUB STATION</td>
+                    <td contenteditable="true" data-field="Sub Station" data-hint="substation name or location (text)">
+                    </td>
+                    <td class="font-bold">DATE</td>
+                    <td contenteditable="true" data-field="Date" data-hint="date format DD/MM/YY like 23/03/25"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">Number Of Vertical</td>
+                    <td contenteditable="true" data-field="Number Of Vertical"
+                        data-hint="count of vertical panels (number)"></td>
+                    <td class="font-bold">Number Of VCB</td>
+                    <td contenteditable="true" data-field="Number Of VCB" data-hint="count of VCBs (number)"></td>
+                </tr>
+            </table>
+
+            <table>
+                <thead>
+                    <tr class="bg-gray text-center font-bold">
+                        <td style="width: 50px;">SR. No</td>
+                        <td>Check Point</td>
+                        <td style="width: 120px;">Observation</td>
+                        <td style="width: 120px;">Remark</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">Bus bar Chamber</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">A-1</td>
+                        <td>Bus bar Chamber cleaning, visual inspection of insulator, tightness</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="A-1 Bus bar Chamber cleaning inspection"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="A-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">A-2</td>
+                        <td>Check for presence of joint shrouds</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="A-2 Check for presence of joint shrouds"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="A-2 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">A-3</td>
+                        <td>Checking for any opening inside the chamber and presence of foreign particle</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="A-3 Checking for opening and foreign particle"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="A-3 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">A-4</td>
+                        <td>Proper closing of Internal arc flaps &amp; box up</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="A-4 Proper closing of Internal arc flaps &amp; box up"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="A-4 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">VCB chamber</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-1</td>
+                        <td>VCB Chamber cleaning</td>
+                        <td class="text-center" contenteditable="true" data-field="B-1 VCB Chamber cleaning"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-2</td>
+                        <td>Check for Safety shutter movement is free. Grease it if needed.</td>
+                        <td class="text-center" contenteditable="true" data-field="B-2 Check Safety shutter movement"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-2 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-3</td>
+                        <td>Check VCB Racking in/out</td>
+                        <td class="text-center" contenteditable="true" data-field="B-3 Check VCB Racking in/out"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-3 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-4</td>
+                        <td>Greasing of racking screw if needed.</td>
+                        <td class="text-center" contenteditable="true" data-field="B-4 Greasing of racking screw"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-4 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-5</td>
+                        <td>Greasing of PDS contact</td>
+                        <td class="text-center" contenteditable="true" data-field="B-5 Greasing of PDS contact"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-5 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-6</td>
+                        <td>Check for SDS alignment.</td>
+                        <td class="text-center" contenteditable="true" data-field="B-6 Check for SDS alignment"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-6 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-7</td>
+                        <td>limit switch operation</td>
+                        <td class="text-center" contenteditable="true" data-field="B-7 Limit switch operation"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-7 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">B-8</td>
+                        <td>Ensure all unused holes are blocked.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="B-8 Ensure all unused holes are blocked"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="B-8 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">LV chamber</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">C-1</td>
+                        <td>LV Chamber cleaning &amp; verification of proper wire termination.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="C-1 LV Chamber cleaning &amp; verification"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="C-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">C-2</td>
+                        <td>Proper lug crimping to be ensured by lightly pulling the wire.</td>
+                        <td class="text-center" contenteditable="true" data-field="C-2 Proper lug crimping"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="C-2 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">Cable chamber</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">D-1</td>
+                        <td>Cable chamber cleaning.</td>
+                        <td class="text-center" contenteditable="true" data-field="D-1 Cable chamber cleaning"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="D-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">D-2</td>
+                        <td>PDS to link hardware tightness, CT hardware tightness, Cable lug H/w tightness</td>
+                        <td class="text-center" contenteditable="true" data-field="D-2 PDS to link hardware tightness"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="D-2 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">D-3</td>
+                        <td>Checking healthiness of Space heater and thermostat.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="D-3 Checking healthiness of Space heater"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="D-3 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">D-4</td>
+                        <td>Presence of rear door fixing hardware.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="D-4 Presence of rear door fixing hardware"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="D-4 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">D-5</td>
+                        <td>Ensure all unused holes are blocked.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="D-5 Ensure all unused holes are blocked"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="D-5 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">Line &amp; Bus PT trolley</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">E-1</td>
+                        <td>Free movement from Test and Service position and back.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="E-1 Free movement from Test and Service position"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="E-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">E-2</td>
+                        <td>Proper contact pressure and alignment in service position.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="E-2 Proper contact pressure and alignment"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="E-2 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">Mechanical operation</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">F-1</td>
+                        <td>Ensure mechanical ON /OFF operation of all VCBs.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="F-1 Ensure mechanical ON/OFF operation"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="F-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">Electrical Operation with
+                            control supply only</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">G-1</td>
+                        <td>Incomer- Bus-coupler operation as per scheme.</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="G-1 Incomer Bus-coupler operation as per scheme"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="G-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="font-bold" style="background-color: #eee;">Contact Resistance Test</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">H-1</td>
+                        <td>Contact resistance of main bus bar</td>
+                        <td class="text-center" contenteditable="true"
+                            data-field="H-1 Contact resistance of main bus bar"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="H-1 Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"></td>
+                        <td>Contact resistance of VCBs</td>
+                        <td class="text-center" contenteditable="true" data-field="H-1 Contact resistance of VCBs"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                        <td contenteditable="true" data-field="H-1 VCBs Remark"
+                            data-hint="ONLY exact handwritten word: ok/okay/good/nice/great/perfect/done/better/fine/checked/N/A">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div><!-- END PAGE 1 -->
+
+        <!-- ═══════════════════════════════════════════════════════════ PAGE 2 -->
+        <div class="report-page">
+
+
+            <div class="section-header"><span>1.0</span> PM BEFORE INSULATION RESISTANCE TEST AT 5KV FOR 30 SEC. :</div>
+            <table>
+                <tr class="text-center">
+                    <td rowspan="2" class="font-bold bg-gray" style="width: 50px;">H-1</td>
+                    <td class="bg-gray font-bold" style="width: 60px;">R-E:</td>
+                    <td contenteditable="true" data-field="PM Before R-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold" style="width: 60px;">Y-E:</td>
+                    <td contenteditable="true" data-field="PM Before Y-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold" style="width: 60px;">B-E:</td>
+                    <td contenteditable="true" data-field="PM Before B-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold" style="width: 60px;">N-E:</td>
+                    <td contenteditable="true" data-field="PM Before N-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                </tr>
+                <tr class="text-center">
+                    <td class="bg-gray font-bold">R-Y:</td>
+                    <td contenteditable="true" data-field="PM Before R-Y"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold">Y-B:</td>
+                    <td contenteditable="true" data-field="PM Before Y-B"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold">B-R:</td>
+                    <td contenteditable="true" data-field="PM Before B-R"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+
+            <div class="section-header"><span>2.0</span> PM AFTER INSULATION RESISTANCE TEST AT 5KV FOR 30 SEC. :</div>
+            <table>
+                <tr class="text-center">
+                    <td rowspan="2" class="font-bold bg-gray" style="width: 50px;">H-2</td>
+                    <td class="bg-gray font-bold" style="width: 60px;">R-E:</td>
+                    <td contenteditable="true" data-field="PM After R-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold" style="width: 60px;">Y-E:</td>
+                    <td contenteditable="true" data-field="PM After Y-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold" style="width: 60px;">B-E:</td>
+                    <td contenteditable="true" data-field="PM After B-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold" style="width: 60px;">N-E:</td>
+                    <td contenteditable="true" data-field="PM After N-E"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                </tr>
+                <tr class="text-center">
+                    <td class="bg-gray font-bold">R-Y:</td>
+                    <td contenteditable="true" data-field="PM After R-Y"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold">Y-B:</td>
+                    <td contenteditable="true" data-field="PM After Y-B"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td class="bg-gray font-bold">B-R:</td>
+                    <td contenteditable="true" data-field="PM After B-R"
+                        data-hint="numeric IR reading in MΩ or GΩ, e.g. 60, 80, 100"></td>
+                    <td colspan="2"></td>
+                </tr>
+            </table>
+
+        </div><!-- END PAGE 2 -->
+
+    </div><!-- end page-container -->
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST CERTIFICATE OF HT SWITCHGEAR PANEL</title>
+    <meta name="description"
+        content="Professional VCB and HT Panel maintenance checklists with editable fields and print-ready layout.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #007bb8;
+            --border-color: #333;
+            --bg-color: #f4f7f9;
+            --page-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --editable-bg: #fffdf2;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Page Container */
+        .page-container {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .report-page {
+            background: var(--page-bg);
+            padding: 40px;
+            min-height: 297mm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sp-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .siemens-brand {
+            text-align: right;
+        }
+
+        .siemens-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: #00828a;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .siemens-sub {
+            font-size: 8px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 11px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        .main-title-cell {
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 10px !important;
+            background-color: #fff;
+        }
+
+        .section-header {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 15px 0 5px 0;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .section-header span {
+            margin-right: 10px;
+        }
+
+        .bg-gray {
+            background-color: #f9f9f9;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: 600;
+        }
+
+        /* Editable Styles */
+        [contenteditable="true"] {
+            outline: none;
+            min-height: 1.2em;
+            cursor: text;
+            transition: background-color 0.2s;
+        }
+
+        [contenteditable="true"]:hover {
+            background-color: rgba(0, 123, 184, 0.05);
+        }
+
+        [contenteditable="true"]:focus {
+            background-color: #fff;
+            box-shadow: inset 0 0 0 1px var(--secondary-color);
+        }
+
+        /* Action Buttons */
+        .actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        @media print {
+            .actions {
+                display: none;
+            }
+
+            [contenteditable="true"]:focus {
+                box-shadow: none;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 10mm;
+                page-break-after: always;
+                border: none;
+            }
+
+            .page-container {
+                gap: 0;
+            }
+        }
+
+        /* Specific Table Layouts */
+        .info-table td {
+            width: 15%;
+        }
+
+        .info-table td:nth-child(even) {
+            width: 35%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="report-page">
+            <div class="header">
+                <div class="sp-logo">
+                    <div style="border: 2px solid #003366; padding: 2px; width: 80px; text-align: center;">
+                        <span style="font-size: 28px; font-weight: 900; color: #003366;">S & P</span>
+                        <div style="font-size: 6px; color: #003366; border-top: 1px solid #003366; margin-top: 2px; padding-top: 2px;">
+                            Elec Infra Pvt. Ltd.</div>
+                    </div>
+                </div>
+                <div class="siemens-brand">
+                    <div class="siemens-logo">SIEMENS</div>
+                    <div class="siemens-sub">Authorized Distributor of RMU & CSS</div>
+                </div>
+            </div>
+
+            <table class="info-table">
+                <tr>
+                    <td colspan="4" class="main-title-cell text-center font-bold">TEST CERTIFICATE OF HT SWITCHGEAR
+                        PANEL</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">CLIENT</td>
+                    <td contenteditable="true" data-field="Client"></td>
+                    <td class="font-bold">TESTED ON</td>
+                    <td contenteditable="true" data-field="Tested On"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">PLANT</td>
+                    <td contenteditable="true" data-field="Plant"></td>
+                    <td class="font-bold">TESTED BY</td>
+                    <td contenteditable="true" data-field="Tested By"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">SWBD</td>
+                    <td colspan="3" contenteditable="true" data-field="SWBD"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">FEEDER</td>
+                    <td colspan="3" contenteditable="true" data-field="Feeder"></td>
+                </tr>
+            </table>
+
+            <div class="section-header"><span>1.0</span> Current Transformer Test:</div>
+
+            <div style="font-size: 11px; margin-bottom: 5px; font-weight: 600;">1.1 Metering Core:</div>
+            <table>
+                <thead>
+                    <tr class="bg-gray text-center font-bold">
+                        <td style="width: 40px;">Ph</td>
+                        <td>Sr. No.</td>
+                        <td>Ratio</td>
+                        <td>VA</td>
+                        <td>Acc. Class</td>
+                        <td>Polarity</td>
+                        <td>CT Resistance Ω</td>
+                        <td>Primary Injected Current A</td>
+                        <td>Secondary Current</td>
+                        <td>Meter Reading ( Amp)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>R</td>
+                        <td contenteditable="true" data-field="Metering R Sr. No."></td>
+                        <td contenteditable="true" data-field="Metering R Ratio"></td>
+                        <td contenteditable="true" data-field="Metering R VA"></td>
+                        <td contenteditable="true" data-field="Metering R Acc. Class"></td>
+                        <td contenteditable="true" data-field="Metering R Polarity"></td>
+                        <td contenteditable="true" data-field="Metering R CT Resistance"></td>
+                        <td contenteditable="true" data-field="Metering R Primary Injected Current"></td>
+                        <td contenteditable="true" data-field="Metering R Secondary Current"></td>
+                        <td contenteditable="true" data-field="Metering R Meter Reading"></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>Y</td>
+                        <td contenteditable="true" data-field="Metering Y Sr. No."></td>
+                        <td contenteditable="true" data-field="Metering Y Ratio"></td>
+                        <td contenteditable="true" data-field="Metering Y VA"></td>
+                        <td contenteditable="true" data-field="Metering Y Acc. Class"></td>
+                        <td contenteditable="true" data-field="Metering Y Polarity"></td>
+                        <td contenteditable="true" data-field="Metering Y CT Resistance"></td>
+                        <td contenteditable="true" data-field="Metering Y Primary Injected Current"></td>
+                        <td contenteditable="true" data-field="Metering Y Secondary Current"></td>
+                        <td contenteditable="true" data-field="Metering Y Meter Reading"></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>B</td>
+                        <td contenteditable="true" data-field="Metering B Sr. No."></td>
+                        <td contenteditable="true" data-field="Metering B Ratio"></td>
+                        <td contenteditable="true" data-field="Metering B VA"></td>
+                        <td contenteditable="true" data-field="Metering B Acc. Class"></td>
+                        <td contenteditable="true" data-field="Metering B Polarity"></td>
+                        <td contenteditable="true" data-field="Metering B CT Resistance"></td>
+                        <td contenteditable="true" data-field="Metering B Primary Injected Current"></td>
+                        <td contenteditable="true" data-field="Metering B Secondary Current"></td>
+                        <td contenteditable="true" data-field="Metering B Meter Reading"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="font-size: 11px; margin: 15px 0 5px 0; font-weight: 600;">1.2 Protection Core:</div>
+            <table>
+                <thead>
+                    <tr class="bg-gray text-center font-bold">
+                        <td style="width: 40px;">Ph</td>
+                        <td>Sr. No.</td>
+                        <td>Ratio</td>
+                        <td>VA</td>
+                        <td>Acc. Class</td>
+                        <td>Polarity</td>
+                        <td>CT Resistance Ω</td>
+                        <td>Primary Injected Current A</td>
+                        <td>Secondary Current</td>
+                        <td>Meter Reading ( Amp)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>R</td>
+                        <td contenteditable="true" data-field="Protection R Sr. No."></td>
+                        <td contenteditable="true" data-field="Protection R Ratio"></td>
+                        <td contenteditable="true" data-field="Protection R VA"></td>
+                        <td contenteditable="true" data-field="Protection R Acc. Class"></td>
+                        <td contenteditable="true" data-field="Protection R Polarity"></td>
+                        <td contenteditable="true" data-field="Protection R CT Resistance"></td>
+                        <td contenteditable="true" data-field="Protection R Primary Injected Current"></td>
+                        <td contenteditable="true" data-field="Protection R Secondary Current"></td>
+                        <td contenteditable="true" data-field="Protection R Meter Reading"></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>Y</td>
+                        <td contenteditable="true" data-field="Protection Y Sr. No."></td>
+                        <td contenteditable="true" data-field="Protection Y Ratio"></td>
+                        <td contenteditable="true" data-field="Protection Y VA"></td>
+                        <td contenteditable="true" data-field="Protection Y Acc. Class"></td>
+                        <td contenteditable="true" data-field="Protection Y Polarity"></td>
+                        <td contenteditable="true" data-field="Protection Y CT Resistance"></td>
+                        <td contenteditable="true" data-field="Protection Y Primary Injected Current"></td>
+                        <td contenteditable="true" data-field="Protection Y Secondary Current"></td>
+                        <td contenteditable="true" data-field="Protection Y Meter Reading"></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>B</td>
+                        <td contenteditable="true" data-field="Protection B Sr. No."></td>
+                        <td contenteditable="true" data-field="Protection B Ratio"></td>
+                        <td contenteditable="true" data-field="Protection B VA"></td>
+                        <td contenteditable="true" data-field="Protection B Acc. Class"></td>
+                        <td contenteditable="true" data-field="Protection B Polarity"></td>
+                        <td contenteditable="true" data-field="Protection B CT Resistance"></td>
+                        <td contenteditable="true" data-field="Protection B Primary Injected Current"></td>
+                        <td contenteditable="true" data-field="Protection B Secondary Current"></td>
+                        <td contenteditable="true" data-field="Protection B Meter Reading"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 15px; font-size: 11px;">
+                <span class="font-bold">1.3 Remarks:-</span>
+                <span contenteditable="true" data-field="Remarks"></span>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+

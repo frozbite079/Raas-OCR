@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Certificate of Numerical Relay RMU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #000;
+            background-color: #f4f4f4;
+            font-size: 13px;
+        }
+
+        .report-page {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: baseline;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 20px 0 10px 0;
+        }
+
+        .st-num {
+            width: 45px;
+            flex-shrink: 0;
+        }
+
+        .st-text {
+            width: 320px;
+            flex-shrink: 0;
+        }
+
+        .st-colon {
+            width: 25px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .st-input {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-bottom: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 5px 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #fff;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            text-align: inherit;
+            padding: 2px 0;
+            color: #000;
+        }
+
+        input[type="text"]:focus {
+            background-color: #eaf3ff;
+        }
+
+        .main-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 8px !important;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .check-number {
+            width: 45px;
+            flex-shrink: 0;
+        }
+
+        .check-text {
+            width: 320px;
+            flex-shrink: 0;
+        }
+
+        .check-colon {
+            width: 25px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .check-input {
+            flex-grow: 1;
+        }
+
+        .check-input input {
+            border-bottom: 1px dotted #000;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        /* Lists for RMU / Checks from Page 2 */
+        .check-list-container {
+            margin-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Specific Table Adjustments from Page 2 */
+        .contact-res-table th {
+            font-weight: bold;
+        }
+
+        .contact-res-table td {
+            padding-right: 15px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            input[type="text"]:focus {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-page">
+
+        <!-- Header Table -->
+        <table>
+            <tr>
+                <td colspan="5" class="main-title">
+                    TEST CERTIFICATE OF NUMERICAL RELAY
+                    <input type="text" value="RMU"
+                        style="width: auto; text-transform: uppercase; font-weight: bold; font-size: 16px; text-align: left;">
+                </td>
+            </tr>
+            <tr>
+                <td class="bold text-left" style="width: 12%;">Client</td>
+                <td style="width: 48%;" colspan="2"><input type="text" class="text-left" data-field="Client"></td>
+                <td class="bold text-left" style="width: 12%;">Tested On</td>
+                <td style="width: 28%;"><input type="text" class="text-left" data-field="Tested On"></td>
+            </tr>
+            <tr>
+                <td class="bold text-left">Plant</td>
+                <td class="bold text-left" colspan="2">RMU <input type="text" style="width: 80%; float: right;"
+                        class="text-left" data-field="Plant" data-hint="Handwritten RMU name or location">
+                </td>
+                <td class="bold text-left">Tested By</td>
+                <td style="width: 28%;"><input type="text" class="text-left" data-field="Tested By"></td>
+            </tr>
+            <tr>
+                <td class="bold text-left">Feeder</td>
+                <td colspan="4"><input type="text" class="text-left" data-field="Feeder"></td>
+            </tr>
+        </table>
+
+        <!-- 1.0 Name Plate -->
+        <div class="section-title">
+            <div class="st-num">1.0</div>
+            <div class="st-text">Name Plate Details of Relay</div>
+            <div class="st-colon">:</div>
+        </div>
+        <table>
+            <tr>
+                <th style="width: 20%;">Make</th>
+                <th style="width: 20%;">Relay Model No.</th>
+                <th style="width: 25%;">Relay Serial No.</th>
+                <th style="width: 15%;">IN (Amp)</th>
+                <th style="width: 20%;">Aux. Supply</th>
+            </tr>
+            <tr>
+                <td><input type="text" data-field="Relay Make" data-hint="1st column: Relay Make"></td>
+                <td><input type="text" data-field="Relay Model No." data-hint="2nd column: Model No."></td>
+                <td><input type="text" data-field="Relay Serial No." data-hint="3rd column: Serial No."></td>
+                <td><input type="text" data-field="IN (Amp)" data-hint="4th column: Rated Current"></td>
+                <td><input type="text" data-field="Aux. Supply" data-hint="5th column: Supply Voltage"></td>
+            </tr>
+        </table>
+
+        <!-- 2.0 Relay Range & Settings -->
+        <div class="section-title">
+            <div class="st-num">2.0</div>
+            <div class="st-text">Relay Range & Settings</div>
+            <div class="st-colon">:</div>
+        </div>
+        <table>
+            <tr>
+                <th colspan="2">Protection</th>
+                <th style="width: 20%;">Setting</th>
+            </tr>
+            <tr>
+                <td colspan="2" class="bold text-left">DEFINITE TIME O/C</td>
+                <td><input type="text" data-hint="SECTION HEADER - LEAVE EMPTY. DO NOT EXTRACT VALUES FOR THIS ROW."></td>
+            </tr>
+            <tr>
+                <td class="text-left" style="width: 45%;">Def. Time Over current protection</td>
+                <td style="width: 35%;">I&gt; (NORMAL INVERSE)</td>
+                <td><input type="text" data-field="Def. Time Over current protection"></td>
+            </tr>
+            <tr>
+                <td class="text-left">High set over current</td>
+                <td>I&gt;&gt;</td>
+                <td><input type="text" data-field="O/C High set over current"></td>
+            </tr>
+            <tr>
+                <td class="text-left">Time delay</td>
+                <td>T1&gt;, TI&gt;&gt;</td>
+                <td><input type="text" data-field="O/C Time delay"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="bold text-left">DEFINITE TIME EF</td>
+                <td><input type="text" data-hint="SECTION HEADER - LEAVE EMPTY. DO NOT EXTRACT VALUES FOR THIS ROW."></td>
+            </tr>
+            <tr>
+                <td class="text-left">Def. Time Earth Fault Protection</td>
+                <td>IE&gt; (NORMAL INVERSE)</td>
+                <td><input type="text" data-field="Def. Time Earth Fault Protection"></td>
+            </tr>
+            <tr>
+                <td class="text-left">High set over current</td>
+                <td>IE&gt;&gt;</td>
+                <td><input type="text" data-field="EF High set over current"></td>
+            </tr>
+            <tr>
+                <td class="text-left">Time delay</td>
+                <td>TIE&gt;, TIE&gt;&gt;</td>
+                <td><input type="text" data-field="EF Time delay"></td>
+            </tr>
+        </table>
+
+        <!-- 4.0 Testing of over current unit -->
+        <div class="section-title">
+            <div class="st-num">4.0</div>
+            <div class="st-text">Testing of over current unit</div>
+            <div class="st-colon">:</div>
+        </div>
+        <table>
+            <tr>
+                <th rowspan="2" style="width: 10%;">Ph</th>
+                <th colspan="4" style="width: 45%;">High set unit</th>
+                <th colspan="4" style="width: 45%;">Definite time unit</th>
+            </tr>
+            <tr>
+                <th>I set</th>
+                <th>I p/u</th>
+                <th>T set</th>
+                <th>Tmeas</th>
+                <th>I set</th>
+                <th>I p/u</th>
+                <th>T set</th>
+                <th>Tmeas</th>
+            </tr>
+            <tr>
+                <td class="bold">R</td>
+                <td><input type="text" data-field="Over Current R I set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current R I p/u High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current R T set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current R Tmeas High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current R I set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current R I p/u Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current R T set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current R Tmeas Definite" data-hint="Right half (Definite time unit)"></td>
+            </tr>
+            <tr>
+                <td class="bold">Y</td>
+                <td><input type="text" data-field="Over Current Y I set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current Y I p/u High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current Y T set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current Y Tmeas High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current Y I set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current Y I p/u Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current Y T set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current Y Tmeas Definite" data-hint="Right half (Definite time unit)"></td>
+            </tr>
+            <tr>
+                <td class="bold">B</td>
+                <td><input type="text" data-field="Over Current B I set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current B I p/u High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current B T set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current B Tmeas High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Over Current B I set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current B I p/u Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current B T set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Over Current B Tmeas Definite" data-hint="Right half (Definite time unit)"></td>
+            </tr>
+        </table>
+
+        <!-- 4.1 Testing of Earth Fault unit -->
+        <div class="section-title" style="align-items: center;">
+            <div class="st-num">4.1</div>
+            <div class="st-text">Testing of Earth<br>Fault unit</div>
+            <div class="st-colon">:</div>
+        </div>
+        <table>
+            <tr>
+                <th rowspan="2" style="width: 10%;">Ph</th>
+                <th colspan="4" style="width: 45%;">High set unit</th>
+                <th colspan="4" style="width: 45%;">Definite time unit</th>
+            </tr>
+            <tr>
+                <th>I set</th>
+                <th>I p/u</th>
+                <th>T set</th>
+                <th>Tmeas</th>
+                <th>I set</th>
+                <th>I p/u</th>
+                <th>T set</th>
+                <th>Tmeas</th>
+            </tr>
+            <tr>
+                <td class="bold">EF</td>
+                <td><input type="text" data-field="Earth Fault EF I set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF I p/u High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF T set High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF Tmeas High" data-hint="Left half (High set unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF I set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF I p/u Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF T set Definite" data-hint="Right half (Definite time unit)"></td>
+                <td><input type="text" data-field="Earth Fault EF Tmeas Definite" data-hint="Right half (Definite time unit)"></td>
+            </tr>
+        </table>
+
+        <!-- 4. General check-up -->
+        <div class="section-title">
+            <div class="st-num">4.</div>
+            <div class="st-text">General check-up</div>
+            <div class="st-colon">:</div>
+        </div>
+        <table>
+            <tr>
+                <th style="width: 15%;">Sr. No.</th>
+                <th>Description</th>
+                <th style="width: 30%;">Remarks</th>
+            </tr>
+            <tr>
+                <td>5.1</td>
+                <td class="text-left">Service setting restored</td>
+                <td><input type="text" data-field="5.1 Service setting restored" data-hint="Checklist item status/remarks"></td>
+            </tr>
+            <tr>
+                <td>5.2</td>
+                <td class="text-left">Marshalling of command relay and signaling relay checked</td>
+                <td><input type="text" data-field="5.2 Marshalling of command relay and signaling relay checked" data-hint="Checklist item status/remarks"></td>
+            </tr>
+            <tr>
+                <td>5.3</td>
+                <td class="text-left">LED programming checked</td>
+                <td><input type="text" data-field="5.3 LED programming checked" data-hint="Checklist item status/remarks"></td>
+            </tr>
+            <tr>
+                <td>5.4</td>
+                <td class="text-left">CB trip test conducted</td>
+                <td><input type="text" data-field="5.4 CB trip test conducted" data-hint="Checklist item status/remarks"></td>
+            </tr>
+        </table>
+
+        <!-- 5.0 Remarks -->
+        <div class="section-title">
+            <div class="st-num">5.0</div>
+            <div class="st-text">Remarks</div>
+            <div class="st-colon">:</div>
+            <div class="st-input"><input type="text" style="border-bottom: 1px transparent solid;" data-field="Remarks"></div>
+        </div>
+
+        <br>
+
+        <div class="page-break"></div> <!-- FORCE PRINT PAGE BREAK HERE -->
+
+        <!-- PAGE 2 CONTINUATION -->
+        <div class="check-list-container" style="margin-top: 30px;">
+            <div class="check-item">
+                <div class="check-number">1.4</div>
+                <div class="check-text">Breaking Capacity</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="1.4 Breaking Capacity"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">1.5</div>
+                <div class="check-text">Type of Breaker</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="1.5 Type of Breaker"></div>
+            </div>
+        </div>
+
+        <!-- 2.0 General Check-up -->
+        <div class="check-list-container" style="margin-top: 30px;">
+            <div class="check-item">
+                <div class="check-number">2.0</div>
+                <div class="check-text">General Check-up</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="2.0 General Check-up" data-hint="Header - leave empty or extract overall status"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">2.1</div>
+                <div class="check-text" style="font-weight: normal;">Check for Physical damage if any</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="2.1 Check for Physical damage if any"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">2.2</div>
+                <div class="check-text" style="font-weight: normal;">Check enclosure for cleanliness and vermin proofing</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="2.2 Check enclosure for cleanliness and vermin proofing"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">2.3</div>
+                <div class="check-text" style="font-weight: normal;">Check earth bus continuity</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="2.3 Check earth bus continuity"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">2.4</div>
+                <div class="check-text" style="font-weight: normal;">Check withdraw ability of RMU</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="2.4 Check withdraw ability of RMU"></div>
+            </div>
+            <div class="check-item" style="margin-top: 15px;">
+                <div class="check-number">2.5</div>
+                <div class="check-text" style="font-weight: normal;">Check tightness of all bolts and wiring</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="2.5 Check tightness of all bolts and wiring"></div>
+            </div>
+        </div>
+
+        <!-- 3.0 Control Circuit and Operational Tests -->
+        <div class="check-list-container" style="margin-top: 30px;">
+            <div class="check-item">
+                <div class="check-number">3.0</div>
+                <div class="check-text">Control Circuit and Operational Tests</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.0 Control Circuit and Operational Tests" data-hint="Header - leave empty or extract overall status"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.1</div>
+                <div class="check-text" style="font-weight: normal;">Check mechanical charging-closing-tripping of RMU</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.1 Check mechanical charging-closing-tripping of RMU"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.2</div>
+                <div class="check-text" style="font-weight: normal;">Check mechanical interlocks of RMU</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.2 Check mechanical interlocks of RMU"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.3</div>
+                <div class="check-text" style="font-weight: normal;">Check electrical charging-closing-tripping of RMU</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.3 Check electrical charging-closing-tripping of RMU"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.4</div>
+                <div class="check-text" style="font-weight: normal;">Trip circuit healthiness and tripping through protective relays</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.4 Trip circuit healthiness and tripping through protective relays"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.5</div>
+                <div class="check-text" style="font-weight: normal;">Remote tripping-interlocks circuits checked</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.5 Remote tripping-interlocks circuits checked"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.6</div>
+                <div class="check-text" style="font-weight: normal;">Check of signal lamps / annunciation circuits.</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.6 Check of signal lamps / annunciation circuits."></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.7</div>
+                <div class="check-text" style="font-weight: normal;">Check operation of spare contacts for customer use</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.7 Check operation of spare contacts for customer use"></div>
+            </div>
+            <div class="check-item">
+                <div class="check-number">3.8</div>
+                <div class="check-text" style="font-weight: normal;">Check panel space heater circuit</div>
+                <div class="check-colon">:</div>
+                <div class="check-input"><input type="text" data-field="3.8 Check panel space heater circuit"></div>
+            </div>
+        </div>
+
+        <!-- 4.0 Current Transformer Test -->
+        <div class="section-title">4.0 &nbsp;&nbsp;&nbsp;&nbsp; Current Transformer Test</div>
+        <div class="section-title" style="margin-top: 10px; margin-bottom: 5px;">4.1 &nbsp;&nbsp;&nbsp;&nbsp; Protection Core</div>
+        <table>
+            <tr>
+                <th style="width: 5%;">Ph</th>
+                <th style="width: 15%;">Sr. No.</th>
+                <th style="width: 10%;">Ratio</th>
+                <th style="width: 8%;">VA</th>
+                <th style="width: 10%;">Acc.<br>Class</th>
+                <th style="width: 12%;">Polarity</th>
+                <th style="width: 12%;">Primary<br>Injected<br>Current</th>
+                <th style="width: 14%;">Secondary<br>Current</th>
+                <th style="width: 14%;">CT Resis.</th>
+            </tr>
+            <tr>
+                <td class="bold">R</td>
+                <td><input type="text" data-field="Protection Core R Sr. No."></td>
+                <td><input type="text" data-field="Protection Core R Ratio"></td>
+                <td><input type="text" data-field="Protection Core R VA"></td>
+                <td><input type="text" data-field="Protection Core R Acc. Class"></td>
+                <td><input type="text" data-field="Protection Core R Polarity"></td>
+                <td><input type="text" data-field="Protection Core R Primary Injected Current"></td>
+                <td><input type="text" data-field="Protection Core R Secondary Current"></td>
+                <td><input type="text" data-field="Protection Core R CT Resis."></td>
+            </tr>
+            <tr>
+                <td class="bold">Y</td>
+                <td><input type="text" data-field="Protection Core Y Sr. No."></td>
+                <td><input type="text" data-field="Protection Core Y Ratio"></td>
+                <td><input type="text" data-field="Protection Core Y VA"></td>
+                <td><input type="text" data-field="Protection Core Y Acc. Class"></td>
+                <td><input type="text" data-field="Protection Core Y Polarity"></td>
+                <td><input type="text" data-field="Protection Core Y Primary Injected Current"></td>
+                <td><input type="text" data-field="Protection Core Y Secondary Current"></td>
+                <td><input type="text" data-field="Protection Core Y CT Resis."></td>
+            </tr>
+            <tr>
+                <td class="bold">B</td>
+                <td><input type="text" data-field="Protection Core B Sr. No."></td>
+                <td><input type="text" data-field="Protection Core B Ratio"></td>
+                <td><input type="text" data-field="Protection Core B VA"></td>
+                <td><input type="text" data-field="Protection Core B Acc. Class"></td>
+                <td><input type="text" data-field="Protection Core B Polarity"></td>
+                <td><input type="text" data-field="Protection Core B Primary Injected Current"></td>
+                <td><input type="text" data-field="Protection Core B Secondary Current"></td>
+                <td><input type="text" data-field="Protection Core B CT Resis."></td>
+            </tr>
+        </table>
+
+        <!-- 5.0 Contact Resistance Test -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 25px;">
+            <div class="section-title" style="margin: 0;">5.0 &nbsp;&nbsp;&nbsp;&nbsp; Contact Resistance Test</div>
+            <div class="bold" style="font-size: 14px; margin-right: 50px;">With All Outgoing Feeders</div>
+        </div>
+        <table class="contact-res-table" style="margin-top: 5px;">
+            <tr>
+                <th rowspan="2" style="text-align: left; padding-left: 10px; width: 25%;">PHASE</th>
+                <th colspan="3">Resistance In Micro Ohms</th>
+            </tr>
+            <tr>
+                <th>RMU 1 & 2</th>
+                <th>RMU 2 & 3</th>
+                <th>RMU 3&4</th>
+            </tr>
+            <tr>
+                <td class="text-left bold" style="padding-left: 10px;">R-R</td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis R-R RMU 1-2"> &micro;&Omega;
+                    </div>
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis R-R RMU 2-3"> &micro;&Omega;
+                    </div>
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis R-R RMU 3-4"> &micro;&Omega;
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-left bold" style="padding-left: 10px;">Y-Y</td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis Y-Y RMU 1-2"> &micro;&Omega;
+                    </div>
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis Y-Y RMU 2-3"> &micro;&Omega;
+                    </div>
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis Y-Y RMU 3-4"> &micro;&Omega;
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-left bold" style="padding-left: 10px;">B-B</td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis B-B RMU 1-2"> &micro;&Omega;
+                    </div>
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis B-B RMU 2-3"> &micro;&Omega;
+                    </div>
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="text" style="width: 60px; text-align: center;" data-field="Contact Resis B-B RMU 3-4"> &micro;&Omega;
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 6.0 Coil Resistance Test -->
+        <div class="section-title" style="margin-top: 30px;">6.0 &nbsp;&nbsp;&nbsp;&nbsp; Coil Resistance Test</div>
+        <table>
+            <tr>
+                <th class="text-left" style="width: 45%; padding-left: 10px;">PHASE</th>
+                <th class="text-left" style="width: 55%; padding-left: 10px;">Resistance In Ohms</th>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 10px;">Closing Coil</td>
+                <td><input type="text" data-field="Coil Resistance Closing Coil"></td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 10px;">Tripping Coil 1 & 2</td>
+                <td><input type="text" data-field="Coil Resistance Tripping Coil 1 & 2"></td>
+            </tr>
+            <tr>
+                <td class="text-left" style="padding-left: 10px;">Spring Charging Motor</td>
+                <td><input type="text" data-field="Coil Resistance Spring Charging Motor"></td>
+            </tr>
+        </table>
+
+        <!-- 7.0 Remarks Footer -->
+        <div class="section-title" style="margin-top: 25px;">
+            7.0 Remarks:
+            <input type="text" style="flex-grow: 1; border-bottom: 0px solid transparent; margin-left: 10px;" data-field="Final Remarks">
+        </div>
+
+    </div>
+
+</body>
+
+</html>

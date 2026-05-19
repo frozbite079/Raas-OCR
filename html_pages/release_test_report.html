@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Test Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #000;
+            background-color: #f4f4f4;
+            font-size: 14px;
+        }
+
+        .report-page {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-bottom: 25px;
+        }
+
+        th,
+        td {
+            border: 1.5px solid #000;
+            padding: 5px 8px;
+            vertical-align: middle;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            text-align: inherit;
+        }
+
+        input[type="text"]:focus {
+            background-color: #eaf3ff;
+        }
+
+        /* Specific Header Table Styles */
+        .header-table {
+            margin-bottom: 30px;
+        }
+
+        .header-table td {
+            text-align: left;
+        }
+
+        .header-table .col-label {
+            width: 25%;
+            font-weight: bold;
+        }
+
+        .header-table .col-input {
+            width: 25%;
+        }
+
+        /* Section Title Styles */
+        .section {
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .bullet {
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        /* Specific Tables */
+        .service-table {
+            width: 70%;
+
+        }
+
+        .service-table th {
+            text-align: center;
+        }
+
+        .service-table td:nth-child(1) {
+            text-align: center;
+            font-weight: bold;
+            width: 15%;
+        }
+
+        .service-table td.protection-col {
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+            width: 50%;
+        }
+
+        .result-table th,
+        .result-table td {
+            text-align: center;
+        }
+
+        .result-table td:first-child {
+            font-weight: bold;
+        }
+
+        /* Footer Box Box */
+        .footer-box {
+            border: 2px solid #000;
+            padding: 15px;
+            margin-top: auto;
+            /* Pushes to bottom of page */
+            height: 150px;
+            position: relative;
+        }
+
+        .footer-text {
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .signature-line {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                max-height: none;
+            }
+
+            input[type="text"]:focus {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-page">
+
+        <!-- Header Table -->
+        <table class="header-table">
+            <tr>
+                <td rowspan="3" colspan="2" style="text-align: center; vertical-align: top; padding-top: 10px;">
+                    <div class="bold" style="font-size: 18px;">KK ENGINEERING CORPORATION</div>
+                    <div class="bold" style="font-size: 18px;">KKEC PRIVATE LIMITED</div>
+                    <div style="font-size: 12px; margin-top: 2px;">VADODARA,GUJARAT</div>
+                    <div style="font-size: 12px;">E-Mail : <span class="bold"
+                            style="text-decoration: underline;">Info@kkec.co.in</span></div>
+                </td>
+                <td colspan="2" class="bold" style="text-align: center; font-size: 16px; text-transform: uppercase;">
+                    RELEASE TEST REPORT
+                </td>
+            </tr>
+            <tr>
+                <td class="col-label">Client</td>
+                <td class="col-input"><input type="text" data-field="Client"></td>
+            </tr>
+            <tr>
+                <td class="col-label">Plant</td>
+                <td class="col-input"><input type="text" data-field="Plant"></td>
+            </tr>
+            <tr>
+                <td class="col-label">Relay Manufacturer</td>
+                <td class="col-input"><input type="text" data-field="Relay Manufacturer"></td>
+                <td class="col-label">Bay/Panel</td>
+                <td class="col-input"><input type="text" data-field="Bay/Panel"></td>
+            </tr>
+            <tr>
+                <td class="col-label">Relay Model No</td>
+                <td class="col-input"><input type="text" data-field="Relay Model No"></td>
+                <td class="col-label">Relay Type</td>
+                <td class="col-input"><input type="text" data-field="Relay Type"></td>
+            </tr>
+            <tr>
+                <td class="col-label">Relay Serial No</td>
+                <td class="col-input"><input type="text" data-field="Relay Serial No"></td>
+                <td class="col-label">Date</td>
+                <td class="col-input"><input type="text" data-field="Date"></td>
+            </tr>
+        </table>
+
+        <!-- Service Setting Section -->
+        <div class="section">
+            <div class="section-header" style="justify-content: flex-start;">
+                <span class="bullet">&bull;</span>
+                <span style="margin-right: 40px;">Service Setting of Relay</span>
+                <span>:</span>
+                <span style="margin-left: 80px; margin-right: 10px;">Rating:</span>
+                <input type="text" data-field="Rating AMP" style="width: 80px; border-bottom: 1px solid #000 !important; text-align: center;">
+                <span style="margin-left: 10px;">AMP</span>
+            </div>
+
+            <table class="service-table">
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Protection</th>
+                    <th>Current in Amp</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">1.</td>
+                    <td class="protection-col">Long Time Ir</td>
+                    <td><input type="text" data-field="Long Time Ir Current in Amp" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td class="protection-col">Long Time tr</td>
+                    <td><input type="text" data-field="Long Time tr Current in Amp" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">2.</td>
+                    <td class="protection-col">Short Time Isd</td>
+                    <td><input type="text" data-field="Short Time Isd Current in Amp" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td class="protection-col">Short Time tsd</td>
+                    <td><input type="text" data-field="Short Time tsd Current in Amp" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">3.</td>
+                    <td class="protection-col">Ground Fault Ig</td>
+                    <td><input type="text" data-field="Ground Fault Ig Current in Amp" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td class="protection-col">Ground Fault tg</td>
+                    <td><input type="text" data-field="Ground Fault tg Current in Amp" style="text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td class="protection-col">Instant</td>
+                    <td><input type="text" data-field="Instant Current in Amp" style="text-align: center;"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Test Result Section -->
+        <div class="section">
+            <div class="section-header" style="margin-bottom: 5px;">
+                <span class="bullet">&bull;</span> Test Result:
+            </div>
+            <div class="bold" style="margin-left: 25px; margin-bottom: 10px;">
+                Ground Fault Ig
+            </div>
+
+            <table class="result-table">
+                <tr>
+                    <th style="width: 16%;">Phase</th>
+                    <th style="width: 21%;">Set Current</th>
+                    <th style="width: 21%;">Operating Current</th>
+                    <th style="width: 21%;">Set Current</th>
+                    <th style="width: 21%;">Operating Current</th>
+                </tr>
+                <tr>
+                    <td>R</td>
+                    <td><input type="text" data-field="Ground Fault R Set Current 1"></td>
+                    <td><input type="text" data-field="Ground Fault R Operating Current 1"></td>
+                    <td><input type="text" data-field="Ground Fault R Set Current 2"></td>
+                    <td><input type="text" data-field="Ground Fault R Operating Current 2"></td>
+                </tr>
+                <tr>
+                    <td>Y</td>
+                    <td><input type="text" data-field="Ground Fault Y Set Current 1"></td>
+                    <td><input type="text" data-field="Ground Fault Y Operating Current 1"></td>
+                    <td><input type="text" data-field="Ground Fault Y Set Current 2"></td>
+                    <td><input type="text" data-field="Ground Fault Y Operating Current 2"></td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td><input type="text" data-field="Ground Fault B Set Current 1"></td>
+                    <td><input type="text" data-field="Ground Fault B Operating Current 1"></td>
+                    <td><input type="text" data-field="Ground Fault B Set Current 2"></td>
+                    <td><input type="text" data-field="Ground Fault B Operating Current 2"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Footer Box -->
+        <div class="footer-box">
+            <div class="footer-text">Tested By: K K ENGINEERING CORPORATION</div>
+            <div class="footer-text" style="margin-left: 80px;">KKEC PRIVATE LIMITED</div>
+            <div class="footer-text" style="margin-left: 80px;">VADODARA,GUJARAT</div>
+
+            <div class="signature-line">
+                Signature: ..............................................................
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

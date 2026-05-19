@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Report of Current Transformer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #000;
+            background-color: #f4f4f4;
+            font-size: 13.5px;
+        }
+
+        .report-page {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin-bottom: 25px;
+        }
+
+        th,
+        td {
+            border: 1.5px solid #000;
+            padding: 5px 8px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        /* Input styling for editability */
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            text-align: inherit;
+            padding: 0;
+        }
+
+        input[type="text"]:focus {
+            background-color: #eaf3ff;
+        }
+
+        /* Specific Header Table Styles */
+        .header-table td {
+            text-align: left;
+        }
+
+        .header-table .title-col {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Section Title Styles */
+        .section-header {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14.5px;
+            margin-bottom: 5px;
+        }
+
+        .sub-header {
+            margin-left: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .bullet {
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        /* Final Checklists */
+        .checklists {
+            margin-top: 25px;
+        }
+
+        .checklist-item {
+            display: flex;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 14.5px;
+            align-items: center;
+        }
+
+        .checklist-item .label {
+            width: 320px;
+        }
+
+        .checklist-item .input-box {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+
+            input[type="text"]:focus {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-page">
+
+        <!-- Header Table -->
+        <table class="header-table">
+            <tr>
+                <td colspan="2" class="title-col" style="font-size: 15px;">
+                    TEST REPORT OF CURRENT TRANSFORMER
+                </td>
+                <td colspan="2" class="title-col">
+                    K. K. ENGINEERING CORPORATION<br>
+                    KKEC PRIVATE LIMITED<br>
+                    VADODARA
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 25%;">Client</td>
+                <td style="width: 35%;"><input type="text" data-field="Client"></td>
+                <td class="bold" style="width: 20%;">Tested DATE</td>
+                <td style="width: 20%;"><input type="text" data-field="Tested DATE"></td>
+            </tr>
+            <tr>
+                <td class="bold">Plant</td>
+                <td><input type="text" data-field="Plant" value="KV INDOOR PANEL" style="text-align: right; padding-right: 10px;"></td>
+                <td class="bold">Tested By</td>
+                <td><input type="text" data-field="Tested By"></td>
+            </tr>
+            <tr>
+                <td class="bold">Location</td>
+                <td><input type="text" data-field="Location" value="KV INDOOR PANEL" style="text-align: right; padding-right: 10px;"></td>
+                <td colspan="2" style="border: none !important;"></td>
+            </tr>
+        </table>
+
+        <!-- CT Specification Section -->
+        <div class="section-header">
+            <span class="bullet">&bull;</span> CT Specification & Name Plate Details &nbsp;:
+        </div>
+        <div class="sub-header">
+            (Core 1-Metering & Core 2-Protection)
+        </div>
+
+        <table>
+            <tr>
+                <th rowspan="2" style="width: 14%;">Make</th>
+                <th rowspan="2" style="width: 9%;">Phase</th>
+                <th rowspan="2" style="width: 12%;">CT Ratio</th>
+                <th rowspan="2" style="width: 15%;">Sr. No</th>
+                <th colspan="2" style="width: 24%;">VA</th>
+                <th colspan="2" style="width: 26%;">Accuracy Class</th>
+            </tr>
+            <tr>
+                <th>Core 1</th>
+                <th>Core 2</th>
+                <th>Core 1</th>
+                <th>Core 2</th>
+            </tr>
+            <tr>
+                <td><input type="text" data-field="Phase R Make"></td>
+                <td class="bold">R</td>
+                <td>
+                    <div style="display:flex;"><input type="text" data-field="Phase R CT Ratio" style="text-align: right;"><span
+                            style="margin-left:5px;">A</span></div>
+                </td>
+                <td><input type="text" data-field="Phase R Sr. No"></td>
+                <td><input type="text" data-field="Phase R VA Core 1"></td>
+                <td><input type="text" data-field="Phase R VA Core 2"></td>
+                <td><input type="text" data-field="Phase R Accuracy Class Core 1"></td>
+                <td><input type="text" data-field="Phase R Accuracy Class Core 2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" data-field="Phase Y Make"></td>
+                <td class="bold">Y</td>
+                <td>
+                    <div style="display:flex;"><input type="text" data-field="Phase Y CT Ratio" style="text-align: right;"><span
+                            style="margin-left:5px;">A</span></div>
+                </td>
+                <td><input type="text" data-field="Phase Y Sr. No"></td>
+                <td><input type="text" data-field="Phase Y VA Core 1"></td>
+                <td><input type="text" data-field="Phase Y VA Core 2"></td>
+                <td><input type="text" data-field="Phase Y Accuracy Class Core 1"></td>
+                <td><input type="text" data-field="Phase Y Accuracy Class Core 2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" data-field="Phase B Make"></td>
+                <td class="bold">B</td>
+                <td>
+                    <div style="display:flex;"><input type="text" data-field="Phase B CT Ratio" style="text-align: right;"><span
+                            style="margin-left:5px;">A</span></div>
+                </td>
+                <td><input type="text" data-field="Phase B Sr. No"></td>
+                <td><input type="text" data-field="Phase B VA Core 1"></td>
+                <td><input type="text" data-field="Phase B VA Core 2"></td>
+                <td><input type="text" data-field="Phase B Accuracy Class Core 1"></td>
+                <td><input type="text" data-field="Phase B Accuracy Class Core 2"></td>
+            </tr>
+        </table>
+
+        <!-- Core 1 Test -->
+        <div class="section-header">
+            <span class="bullet">&bull;</span> CT Ratio, Polarity & Circuit Test &nbsp;:
+        </div>
+        <div class="sub-header" style="margin-top: 10px;">
+            <span style="width: 180px;">Core 1- Metering</span> :
+            <input type="text" data-field="Core1 Metering Current"
+                style="width: 50px; border-bottom: 1px solid #000 !important; text-align: center; margin-left:15px; margin-right:5px;">
+            A
+        </div>
+
+        <table>
+            <tr>
+                <th style="width: 10%;">Phase</th>
+                <th style="width: 18%;">Primary Current<br>(Amp)</th>
+                <th style="width: 20%;">Secondary Current<br>(Amp)</th>
+                <th style="width: 12%;">Ratio</th>
+                <th style="width: 15%;">Polarity</th>
+                <th style="width: 25%;">Current Measured<br>at Back Side of<br>Meter</th>
+            </tr>
+            <tr>
+                <td class="bold">R</td>
+                <td><input type="text" data-field="Core1 Metering R Primary Current"></td>
+                <td><input type="text" data-field="Core1 Metering R Secondary Current"></td>
+                <td><input type="text" data-field="Core1 Metering R Ratio"></td>
+                <td><input type="text" data-field="Core1 Metering R Polarity"></td>
+                <td><input type="text" data-field="Core1 Metering R Current Measured at Back Side of Meter"></td>
+            </tr>
+            <tr>
+                <td class="bold">Y</td>
+                <td><input type="text" data-field="Core1 Metering Y Primary Current"></td>
+                <td><input type="text" data-field="Core1 Metering Y Secondary Current"></td>
+                <td><input type="text" data-field="Core1 Metering Y Ratio"></td>
+                <td><input type="text" data-field="Core1 Metering Y Polarity"></td>
+                <td><input type="text" data-field="Core1 Metering Y Current Measured at Back Side of Meter"></td>
+            </tr>
+            <tr>
+                <td class="bold">B</td>
+                <td><input type="text" data-field="Core1 Metering B Primary Current"></td>
+                <td><input type="text" data-field="Core1 Metering B Secondary Current"></td>
+                <td><input type="text" data-field="Core1 Metering B Ratio"></td>
+                <td><input type="text" data-field="Core1 Metering B Polarity"></td>
+                <td><input type="text" data-field="Core1 Metering B Current Measured at Back Side of Meter"></td>
+            </tr>
+        </table>
+
+        <!-- Core 2 Test -->
+        <div class="sub-header" style="margin-top: 25px;">
+            <span class="bullet" style="margin-left: -25px;">&bull;</span>
+            <span style="width: 180px;">Core 2- Protection</span> :
+            <input type="text" data-field="Core2 Protection Current"
+                style="width: 50px; border-bottom: 1px solid #000 !important; text-align: center; margin-left:15px; margin-right:5px;">
+            A
+        </div>
+
+        <table>
+            <tr>
+                <th style="width: 10%;">Phase</th>
+                <th style="width: 18%;">Primary Current<br>(Amp)</th>
+                <th style="width: 20%;">Secondary Current<br>(Amp)</th>
+                <th style="width: 12%;">Ratio</th>
+                <th style="width: 15%;">Polarity</th>
+                <th style="width: 25%;">Current Measured<br>at Back Side of<br>Relay</th>
+            </tr>
+            <tr>
+                <td class="bold">R</td>
+                <td><input type="text" data-field="Core2 Protection R Primary Current"></td>
+                <td><input type="text" data-field="Core2 Protection R Secondary Current"></td>
+                <td><input type="text" data-field="Core2 Protection R Ratio"></td>
+                <td><input type="text" data-field="Core2 Protection R Polarity"></td>
+                <td><input type="text" data-field="Core2 Protection R Current Measured at Back Side of Relay"></td>
+            </tr>
+            <tr>
+                <td class="bold">Y</td>
+                <td><input type="text" data-field="Core2 Protection Y Primary Current"></td>
+                <td><input type="text" data-field="Core2 Protection Y Secondary Current"></td>
+                <td><input type="text" data-field="Core2 Protection Y Ratio"></td>
+                <td><input type="text" data-field="Core2 Protection Y Polarity"></td>
+                <td><input type="text" data-field="Core2 Protection Y Current Measured at Back Side of Relay"></td>
+            </tr>
+            <tr>
+                <td class="bold">B</td>
+                <td><input type="text" data-field="Core2 Protection B Primary Current"></td>
+                <td><input type="text" data-field="Core2 Protection B Secondary Current"></td>
+                <td><input type="text" data-field="Core2 Protection B Ratio"></td>
+                <td><input type="text" data-field="Core2 Protection B Polarity"></td>
+                <td><input type="text" data-field="Core2 Protection B Current Measured at Back Side of Relay"></td>
+            </tr>
+        </table>
+
+        <!-- Insulation Test -->
+        <div class="section-header" style="margin-top: 25px;">
+            <span class="bullet" style="margin-left: 2px;">&bull;</span> Insulation Resistance Test
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            :
+        </div>
+
+        <table>
+            <tr>
+                <th style="width: 35%;">Voltage Applied Across</th>
+                <th style="width: 35%;">Voltage Applied (30 sec)</th>
+                <th style="width: 30%;">Measured IR Value</th>
+            </tr>
+            <tr>
+                <td>Primary to Earth</td>
+                <td><input type="text" data-field="IR Primary to Earth Voltage Applied" value="5 KV" style="text-align: center;"></td>
+                <td><input type="text" data-field="IR Primary to Earth Measured Value" value="OK/NOT" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Primary to Core 1</td>
+                <td><input type="text" data-field="IR Primary to Core 1 Voltage Applied" value="500 V" style="text-align: center;"></td>
+                <td><input type="text" data-field="IR Primary to Core 1 Measured Value" value="OK/NOT" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Primary to Core 2</td>
+                <td><input type="text" data-field="IR Primary to Core 2 Voltage Applied" value="500 V" style="text-align: center;"></td>
+                <td><input type="text" data-field="IR Primary to Core 2 Measured Value" value="OK/NOT" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Core 1 to Core 2</td>
+                <td><input type="text" data-field="IR Core 1 to Core 2 Voltage Applied" value="500 V" style="text-align: center;"></td>
+                <td><input type="text" data-field="IR Core 1 to Core 2 Measured Value" value="OK/NOT" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Core 1 to Earth</td>
+                <td><input type="text" data-field="IR Core 1 to Earth Voltage Applied" value="500 V" style="text-align: center;"></td>
+                <td><input type="text" data-field="IR Core 1 to Earth Measured Value" value="OK/NOT" style="text-align: center;"></td>
+            </tr>
+            <tr>
+                <td>Core 2 to Earth</td>
+                <td><input type="text" data-field="IR Core 2 to Earth Voltage Applied" value="500 V" style="text-align: center;"></td>
+                <td><input type="text" data-field="IR Core 2 to Earth Measured Value" value="OK/NOT" style="text-align: center;"></td>
+            </tr>
+        </table>
+
+        <!-- Final Checklists -->
+        <div class="checklists">
+            <div class="checklist-item">
+                <span class="bullet" style="margin-left: 4px;">&bull;</span>
+                <span class="label">General Check-up</span> :
+                <div class="input-box"><input type="text" data-field="General Check-up"></div>
+            </div>
+            <div class="checklist-item">
+                <span class="bullet" style="margin-left: 4px;">&bull;</span>
+                <span class="label">Continuity Checked & Found Proper</span> :
+                <div class="input-box"><input type="text" data-field="Continuity Checked & Found Proper"></div>
+            </div>
+            <div class="checklist-item">
+                <span class="bullet" style="margin-left: 4px;">&bull;</span>
+                <span class="label">Remark</span> :
+                <div class="input-box"><input type="text" data-field="Remark"></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

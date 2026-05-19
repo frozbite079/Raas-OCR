@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist of MVS ACB/MCCB Servicing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #000;
+            background-color: #f4f4f4;
+        }
+
+        .report-container {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Title */
+        .title-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .main-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .title-input {
+            width: 350px;
+            border: 2px solid #000 !important;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* Common Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1.5px solid #000;
+            padding: 6px;
+        }
+
+        th {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        td.bold {
+            font-weight: bold;
+        }
+
+        /* Input Styles */
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-family: inherit;
+            font-size: 14px;
+            background: transparent;
+            padding: 2px 0;
+            color: #000;
+        }
+
+        input[type="text"]:focus {
+            background-color: #eaf3ff;
+        }
+
+        /* Specific Sections */
+        .top-info-table th,
+        .top-info-table td {
+            border-bottom: 1.5px solid #000;
+        }
+
+        .top-info-table td:first-child {
+            width: 15%;
+            font-weight: bold;
+        }
+
+        .top-info-table td:nth-child(2) {
+            width: 35%;
+        }
+
+        .top-info-table td:nth-child(3) {
+            width: 25%;
+            font-weight: bold;
+        }
+
+        .top-info-table td:nth-child(4) {
+            width: 25%;
+        }
+
+        /* Main Checklist Table */
+        .checklist-table th,
+        .checklist-table td {
+            padding: 5px;
+        }
+
+        .checklist-table th {
+            text-align: center;
+        }
+
+        .checklist-table td:first-child {
+            text-align: center;
+            font-weight: bold;
+            width: 8%;
+        }
+
+        .checklist-table td:nth-child(2) {
+            font-weight: bold;
+            width: 72%;
+        }
+
+        .checklist-table td:nth-child(3) {
+            width: 20%;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .footer-left input {
+            border-bottom: 1px solid #000;
+            width: 250px;
+        }
+
+        .footer-right {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 10px;
+        }
+
+        .signature-line {
+            margin-top: 60px;
+            width: 200px;
+        }
+
+        /* Remarks Box */
+        .remarks-box {
+            margin-top: 20px;
+            border-top: 1.5px solid #000;
+            padding-top: 10px;
+            display: flex;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .remarks-label {
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+
+        .remarks-input {
+            flex-grow: 1;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+            }
+
+            .report-container {
+                box-shadow: none;
+                border: 2px solid #000;
+                /* Add outer thick border for printing */
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            input[type="text"]:focus {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-container">
+
+        <!-- Title Section -->
+        <div class="title-section">
+            <div class="main-title">CHECK - LIST OF MVS ACB/MCCB SERVICING</div>
+            <input type="text" class="title-input" data-field="Document Reference" data-hint="Reference No, Report No, Checklist No">
+        </div>
+
+        <!-- Top Info Table -->
+        <table class="top-info-table">
+            <tr>
+                <td>Frame</td>
+                <td><input type="text" data-field="Frame"></td>
+                <td>Accessories ( Fitted )</td>
+                <td><input type="text" data-field="Accessories (Fitted)" value="N.A"></td>
+            </tr>
+            <tr>
+                <td>Rating</td>
+                <td><input type="text" data-field="Rating"></td>
+                <td>Location</td>
+                <td><input type="text" data-field="Location"></td>
+            </tr>
+            <tr>
+                <td>Sr. No.</td>
+                <td><input type="text" data-field="Sr. No."></td>
+                <td>Date</td>
+                <td><input type="text" data-field="Date"></td>
+            </tr>
+        </table>
+
+        <!-- Checklist Table -->
+        <table class="checklist-table">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Description</th>
+                <th>Report</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Cleaning of dust, foreign Particals, removal of Arc Chtes.</td>
+                <td><input type="text" data-field="1. Cleaning of dust, foreign Particals, removal of Arc Chtes."></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Condition of power contacts</td>
+                <td><input type="text" data-field="2. Condition of power contacts"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Condition of clusters</td>
+                <td><input type="text" data-field="3. Condition of clusters"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Condition of Arcing contacts</td>
+                <td><input type="text" data-field="4. Condition of Arcing contacts"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Check on Contact wear</td>
+                <td><input type="text" data-field="5. Check on Contact wear"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Mechanical Indicator for CD, CE , CT Position.</td>
+                <td><input type="text" data-field="6. Mechanical Indicator for CD, CE, CT Position."></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Drawount Assembly operation with indication .</td>
+                <td><input type="text" data-field="7. Drawout Assembly operation with indication."></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Mechanisam ON/OFF Operation with indication</td>
+                <td><input type="text" data-field="8. Mechanisam ON/OFF Operation with indication"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Making of Fixed & moving Contacts.</td>
+                <td><input type="text" data-field="9. Making of Fixed & moving Contacts."></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Testing of Operation of Accessories.</td>
+                <td><input type="text" data-field="10. Testing of Operation of Accessories."></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Check Operation Of MX / Shunt Release</td>
+                <td><input type="text" data-field="11. Check Operation Of MX / Shunt Release"></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Check SDE Contacts</td>
+                <td><input type="text" data-field="12. Check SDE Contacts"></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Check MCH / Charging Motor Assly</td>
+                <td><input type="text" data-field="13. Check MCH / Charging Motor Assly"></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Check Operation XF / Closing Release</td>
+                <td><input type="text" data-field="14. Check Operation XF / Closing Release"></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Check Operation MN / Under voltage Release -</td>
+                <td><input type="text" data-field="15. Check Operation MN / Under voltage Release"></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Auxilary Contacts</td>
+                <td><input type="text" data-field="16. Auxilary Contacts"></td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Check Safety Shutter Assembly</td>
+                <td><input type="text" data-field="17. Check Safety Shutter Assembly"></td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Check Ronis Lock Assly.</td>
+                <td><input type="text" data-field="18. Check Ronis Lock Assly."></td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>All Mechanical Interlocking</td>
+                <td><input type="text" data-field="19. All Mechanical Interlocking"></td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Control Wiring of Accessories</td>
+                <td><input type="text" data-field="20. Control Wiring of Accessories"></td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Nutral Setting</td>
+                <td><input type="text" data-field="21. Nutral Setting"></td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>MICROLOGIC TESTING <span style="float: right; margin-right: 50px;">BY HHTK. Micrologic</span></td>
+                <td><input type="text" data-field="22. MICROLOGIC TESTING"></td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Relacement / Repaire & New istallation of accessoris.</td>
+                <td><input type="text" data-field="23. Relacement / Repaire & New istallation of accessoris."></td>
+            </tr>
+        </table>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="footer-left">
+                <span>Customer Name :</span>
+                <input type="text" data-field="Customer Name">
+            </div>
+            <div class="footer-right">
+                <span>For K.K.ENGINEERING CORPORATION,</span>
+                <div class="signature-line">
+                    <input type="text" data-field="Signature" style="text-align: center; border-bottom: 0px;" placeholder="">
+                    <div style="text-align: center;">Signature</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remarks Box -->
+        <div class="remarks-box">
+            <div class="remarks-label">REMARKS.</div>
+            <div class="remarks-input">
+                <input type="text" data-field="Remark"
+                    value="Test ACB ON-OFF operation manually with all accessories found working satisfactory">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

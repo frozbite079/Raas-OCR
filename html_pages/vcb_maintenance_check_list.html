@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCB (VACUUM CIRCUIT BREAKER) MAINTENANCE CHECK LIST</title>
+    <meta name="description"
+        content="Professional VCB and HT Panel maintenance checklists with editable fields and print-ready layout.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #007bb8;
+            --border-color: #333;
+            --bg-color: #f4f7f9;
+            --page-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --editable-bg: #fffdf2;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        /* Page Container */
+        .page-container {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .report-page {
+            background: var(--page-bg);
+            padding: 40px;
+            min-height: 297mm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .sp-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .siemens-brand {
+            text-align: right;
+        }
+
+        .siemens-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: #00828a;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .siemens-sub {
+            font-size: 8px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 11px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        .main-title-cell {
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 10px !important;
+            background-color: #fff;
+        }
+
+        .section-header {
+            font-size: 12px;
+            font-weight: 700;
+            margin: 15px 0 5px 0;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .section-header span {
+            margin-right: 10px;
+        }
+
+        .bg-gray {
+            background-color: #f9f9f9;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: 600;
+        }
+
+        /* Editable Styles */
+        [contenteditable="true"] {
+            outline: none;
+            min-height: 1.2em;
+            cursor: text;
+            transition: background-color 0.2s;
+        }
+
+        [contenteditable="true"]:hover {
+            background-color: rgba(0, 123, 184, 0.05);
+        }
+
+        [contenteditable="true"]:focus {
+            background-color: #fff;
+            box-shadow: inset 0 0 0 1px var(--secondary-color);
+        }
+
+        /* Action Buttons */
+        .actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        @media print {
+            .actions {
+                display: none;
+            }
+
+            [contenteditable="true"]:focus {
+                box-shadow: none;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+
+            .report-page {
+                box-shadow: none;
+                margin: 0;
+                padding: 10mm;
+                page-break-after: always;
+                border: none;
+            }
+
+            .page-container {
+                gap: 0;
+            }
+        }
+
+        /* Specific Table Layouts */
+        .info-table td {
+            width: 15%;
+        }
+
+        .info-table td:nth-child(even) {
+            width: 35%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-container">
+        <div class="report-page">
+            <div class="header">
+                <div class="sp-logo">
+                    <div style="border: 2px solid #003366; padding: 2px; width: 80px; text-align: center;">
+                        <span style="font-size: 28px; font-weight: 900; color: #003366;">S & P</span>
+                        <div style="font-size: 6px; color: #003366; border-top: 1px solid #003366; margin-top: 2px; padding-top: 2px;">
+                            Elec Infra Pvt. Ltd.</div>
+                    </div>
+                </div>
+                <div class="siemens-brand">
+                    <div class="siemens-logo">SIEMENS</div>
+                    <div class="siemens-sub">Authorized Distributor of RMU & CSS</div>
+                </div>
+            </div>
+
+            <table class="info-table">
+                <tr>
+                    <td colspan="4" class="main-title-cell text-center font-bold">VCB (VACUUM CIRCUIT BREAKER)
+                        MAINTENANCE CHECK LIST</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">CLIENT</td>
+                    <td data-field="CLIENT" contenteditable="true"></td>
+                    <td class="font-bold">DATE</td>
+                    <td data-field="DATE" contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">LOCATION</td>
+                    <td data-field="LOCATION" contenteditable="true"></td>
+                    <td class="font-bold">PANEL NO.</td>
+                    <td data-field="PANEL NO." contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">MAKE & TYPE</td>
+                    <td data-field="MAKE & TYPE" contenteditable="true"></td>
+                    <td class="font-bold">VCB SR. NO.</td>
+                    <td data-field="VCB SR. NO." contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">FEEDER</td>
+                    <td data-field="FEEDER" contenteditable="true"></td>
+                    <td class="font-bold">VCB AMP</td>
+                    <td data-field="VCB AMP" contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">VCB VOLTAGE</td>
+                    <td data-field="VCB VOLTAGE" contenteditable="true"></td>
+                    <td class="font-bold">VCB KA</td>
+                    <td data-field="VCB KA" contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td class="font-bold">SWITCH BOARD</td>
+                    <td data-field="SWITCH BOARD" contenteditable="true"></td>
+                    <td class="font-bold">SERVICE BY</td>
+                    <td data-field="SERVICE BY" contenteditable="true"></td>
+                </tr>
+            </table>
+
+            <table>
+                <thead>
+                    <tr class="bg-gray text-center font-bold">
+                        <td style="width: 50px;">Sr. No.</td>
+                        <td>WORK DESCRIPTION METHOD OF CHECKING</td>
+                        <td style="width: 150px;">Result</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>Visual Inspection of Breaker.</td>
+                        <td data-field="1 Visual Inspection of Breaker" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>Through Cleaning of the Breaker with CRC, removal of old grease & apply new Grease</td>
+                        <td data-field="2 Through Cleaning of the Breaker with CRC" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>Lubrication of all moving parts and mechanism</td>
+                        <td data-field="3 Lubrication of all moving parts and mechanism" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">4</td>
+                        <td>Checking of Closing and Tripping coil</td>
+                        <td data-field="4 Checking of Closing and Tripping coil" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">5</td>
+                        <td>Checking of Test/Service Aux. Switch Operation</td>
+                        <td data-field="5 Checking of Test/Service Aux. Switch Operation" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">6</td>
+                        <td>Checking of hardware and it's tightness and circlips</td>
+                        <td data-field="6 Checking of hardware and tightness and circlips" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">7</td>
+                        <td>Checking of Closing and tripping Mechanism Operation</td>
+                        <td data-field="7 Checking of Closing and tripping Mechanism Operation" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">8</td>
+                        <td>Checking of condition & alignment of Jaw Contacts</td>
+                        <td data-field="8 Checking of condition & alignment of Jaw Contacts" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">9</td>
+                        <td>Breaker Aux. Switch Operation</td>
+                        <td data-field="9 Breaker Aux. Switch Operation" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">10</td>
+                        <td>Checking of Front drive Key operation in Test and Service</td>
+                        <td data-field="10 Checking of Front drive Key operation in Test and Service" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">11</td>
+                        <td>Checking of Closing Coil Resistance.</td>
+                        <td data-field="11 Checking of Closing Coil Resistance" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">12</td>
+                        <td>Checking of Tripping Coil Resistance.</td>
+                        <td data-field="12 Checking of Tripping Coil Resistance" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">13</td>
+                        <td>Checking of Motor Coil Resistance.</td>
+                        <td data-field="13 Checking of Motor Coil Resistance" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">14</td>
+                        <td>Checking of K1 (Anti Pumping Contactor) Resistance</td>
+                        <td data-field="14 Checking of K1 Anti Pumping Contactor Resistance" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">15</td>
+                        <td>Checking of Roller Gap By Gauge-V0ernier</td>
+                        <td data-field="15 Checking of Roller Gap By Gauge-Vernier" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">16</td>
+                        <td>Checking of Damper Gap By Gauge-Vernier</td>
+                        <td data-field="16 Checking of Damper Gap By Gauge-Vernier" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">17</td>
+                        <td>Tightness of Power Connection and VCB wiring</td>
+                        <td data-field="17 Tightness of Power Connection and VCB wiring" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">18</td>
+                        <td>Checking of Scraping Earth Alignment</td>
+                        <td data-field="18 Checking of Scraping Earth Alignment" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">19</td>
+                        <td>Checking of Breaker ON/OFF operations in Test & Service Position</td>
+                        <td data-field="19 Checking of Breaker ON/OFF operations in Test Service Position" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">20</td>
+                        <td>Checking of Torque Contact Arm & VI Fixing (NM)</td>
+                        <td data-field="20 Checking of Torque Contact Arm VI Fixing NM" class="text-center" contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">21</td>
+                        <td>Checking of Counter Reading</td>
+                        <td data-field="21 Checking of Counter Reading" class="text-center" contenteditable="true"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-header"><span>1.0</span> Timing Test Report (All value in Mili Seconds) :</div>
+            <table>
+                <tr class="bg-gray text-center font-bold">
+                    <td>Phase</td>
+                    <td>Closing Time</td>
+                    <td>Tripping Time</td>
+                </tr>
+                <tr class="text-center">
+                    <td>R</td>
+                    <td data-field="Timing R Closing Time" contenteditable="true"></td>
+                    <td data-field="Timing R Tripping Time" contenteditable="true"></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Y</td>
+                    <td data-field="Timing Y Closing Time" contenteditable="true"></td>
+                    <td data-field="Timing Y Tripping Time" contenteditable="true"></td>
+                </tr>
+                <tr class="text-center">
+                    <td>B</td>
+                    <td data-field="Timing B Closing Time" contenteditable="true"></td>
+                    <td data-field="Timing B Tripping Time" contenteditable="true"></td>
+                </tr>
+            </table>
+
+            <div class="section-header"><span>2.0</span> Contact resistance (All Value in Micro Ohm) :</div>
+            <table>
+                <tr class="bg-gray text-center font-bold">
+                    <td>R – PHASE</td>
+                    <td>Y-PHASE</td>
+                    <td>B-PHASE</td>
+                </tr>
+                <tr class="text-center">
+                    <td data-field="Contact Resistance R Phase" contenteditable="true"></td>
+                    <td data-field="Contact Resistance Y Phase" contenteditable="true"></td>
+                    <td data-field="Contact Resistance B Phase" contenteditable="true"></td>
+                </tr>
+            </table>
+
+            <div class="section-header"><span>3.0</span> VI Details :</div>
+            <table>
+                <tr class="text-center">
+                    <td data-field="VI Details R Type" contenteditable="true"></td>
+                    <td data-field="VI Details Y Type" contenteditable="true"></td>
+                    <td data-field="VI Details B Type" contenteditable="true"></td>
+                </tr>
+                <tr class="text-center">
+                    <td data-field="VI Details R Serial" contenteditable="true"></td>
+                    <td data-field="VI Details Y Serial" contenteditable="true"></td>
+                    <td data-field="VI Details B Serial" contenteditable="true"></td>
+                </tr>
+            </table>
+
+            <div class="section-header"><span>4.0</span> IR Test :</div>
+            <table>
+                <tr class="bg-gray text-center font-bold">
+                    <td>Phase to Earth (close condition)</td>
+                    <td>Value in Ω</td>
+                    <td>Phase to Phase</td>
+                    <td>Value in Ω</td>
+                    <td>Open Cond. Top-Bottom</td>
+                    <td>Value in Ω</td>
+                </tr>
+                <tr class="text-center">
+                    <td>RE</td>
+                    <td data-field="IR RE" contenteditable="true"></td>
+                    <td>RY</td>
+                    <td data-field="IR RY" contenteditable="true"></td>
+                    <td>RR</td>
+                    <td data-field="IR RR" contenteditable="true"></td>
+                </tr>
+                <tr class="text-center">
+                    <td>YE</td>
+                    <td data-field="IR YE" contenteditable="true"></td>
+                    <td>YB</td>
+                    <td data-field="IR YB" contenteditable="true"></td>
+                    <td>YY</td>
+                    <td data-field="IR YY" contenteditable="true"></td>
+                </tr>
+                <tr class="text-center">
+                    <td>BE</td>
+                    <td data-field="IR BE" contenteditable="true"></td>
+                    <td>BR</td>
+                    <td data-field="IR BR" contenteditable="true"></td>
+                    <td>BB</td>
+                    <td data-field="IR BB" contenteditable="true"></td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 15px; font-size: 11px;">
+                <span class="font-bold">Remark:-</span>
+                <span contenteditable="true"></span>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+

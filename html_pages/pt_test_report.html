@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Test Report - KKEC Private Limited</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .report-content {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1.5px solid #000;
+            padding: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #fff;
+            font-weight: bold;
+        }
+
+        .header-table td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .title-box {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px;
+        }
+
+        .section-title {
+            text-align: left;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .bullet {
+            font-size: 24px;
+            margin-right: 10px;
+            line-height: 0;
+        }
+
+        .no-border {
+            border: none !important;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        /* Editable Input Style */
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            background: transparent;
+            text-align: inherit;
+            padding: 4px 0;
+        }
+
+        input[type="text"]:focus {
+            background-color: #f0f7ff;
+        }
+
+        .header-input {
+            border-bottom: 1px solid #000 !important;
+            margin-left: 5px;
+            text-align: left !important;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+            }
+
+            .report-content {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+            }
+
+            input[type="text"]:focus {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-content">
+        <!-- Main Header Table -->
+        <table class="header-table">
+            <tr>
+                <td rowspan="3" style="width: 50%; text-align: center; vertical-align: middle;">
+                    <div class="bold" style="font-size: 20px;">KKEC PRIVATE LIMITED</div>
+                    <div>VADODARA, GUJARAT</div>
+                    <div style="font-size: 13px; margin-top: 5px;">
+                        E-Mail: <span style="text-decoration: underline; color: blue;">kk221@yahoo.com</span>,
+                        <span style="text-decoration: underline; color: blue;">info@kkec.co.in</span>
+                    </div>
+                </td>
+                <td style="width: 50%; padding: 0;">
+                    <div class="title-box">PT TEST REPORT</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0;">
+                    <table style="width: 100%; border: none; margin: 0;">
+                        <tr>
+                            <td style="width: 30%; border: none; border-bottom: 1.5px solid #000;">Client</td>
+                            <td style="border: none; border-bottom: 1.5px solid #000; border-left: 1.5px solid #000;">
+                                <input type="text">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0;">
+                    <table style="width: 100%; border: none; margin: 0;">
+                        <tr>
+                            <td style="width: 30%; border: none;">Plant</td>
+                            <td style="border: none; border-left: 1.5px solid #000;">
+                                <input type="text">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top: 1.5px solid #000;">
+                    <div style="display: flex; align-items: center;">
+                        <span style="white-space: nowrap;">Date</span>
+                        <input type="text" style="margin-left: 10px; flex-grow: 1; text-align: left;">
+                    </div>
+                </td>
+                <td style="padding: 0; border-top: 1.5px solid #000;">
+                    <table style="width: 100%; border: none; margin: 0;">
+                        <tr>
+                            <td style="width: 30%; border: none;">Feeder Name</td>
+                            <td style="border: none; border-left: 1.5px solid #000;">
+                                <input type="text">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <!-- PT Specification Section -->
+        <div class="section-title">
+            <span class="bullet">&bull;</span> PT Specification & Name Plate Details &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+        </div>
+        <div style="margin-left: 25px; margin-bottom: 10px; font-weight: bold;">(Core 1-Metering & Core2-Protection)
+        </div>
+
+        <table>
+            <tr>
+                <th rowspan="2" style="width: 10%;">Make</th>
+                <th rowspan="2" style="width: 10%;">Phase</th>
+                <th rowspan="2" style="width: 12%;">PT Ratio</th>
+                <th rowspan="2" style="width: 12%;">Sr. No</th>
+                <th colspan="3" style="width: 25%;">VA</th>
+                <th colspan="3" style="width: 31%;">Accuracy Class</th>
+            </tr>
+            <tr>
+                <th>Core 1</th>
+                <th>Core 2</th>
+                <th>Core 3</th>
+                <th>Core 1</th>
+                <th>Core 2</th>
+                <th>Core 3</th>
+            </tr>
+            <!-- 3 Editable Rows -->
+            <tr>
+                <td style="text-align: left;"><input type="text" value="ECS"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td style="text-align: left;"><input type="text" value="ECS"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td style="text-align: left;"><input type="text" value="ECS"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+
+        <!-- PT Ratio & Circuit Test Section -->
+        <div class="section-title">
+            <span class="bullet">&bull;</span> PT Ratio & Circuit Test &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+        </div>
+        <div style="margin-left: 25px; margin-bottom: 10px; font-weight: bold;">
+            Core1-Metering &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+        </div>
+
+        <table>
+            <tr>
+                <th style="width: 10%;">Phase</th>
+                <th style="width: 20%;">Primary Voltage (volts)</th>
+                <th style="width: 22%;">Secondary Voltage (Ph-N)</th>
+                <th style="width: 26%;">Secondary Winding Resistance (&Omega;)</th>
+                <th style="width: 22%;">Ratio</th>
+            </tr>
+            <tr>
+                <td class="bold">R</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td class="bold">Y</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td class="bold">B</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+
+        <!-- Core 2 Protection Section -->
+        <div class="section-title" style="margin-bottom: 10px;">
+            <span class="bullet">&bull;</span> Core2-Protection &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+        </div>
+        <table>
+            <tr>
+                <th style="width: 10%;">Phase</th>
+                <th style="width: 20%;">Primary Voltage (volts)</th>
+                <th style="width: 22%;">Secondary Voltage (Ph-N)</th>
+                <th style="width: 26%;">Secondary Winding Resistance (&Omega;)</th>
+                <th style="width: 22%;">Ratio</th>
+            </tr>
+            <tr>
+                <td class="bold">R</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td class="bold">Y</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td class="bold">B</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+
+        <!-- Insulation Resistance Test Section -->
+        <div class="section-title" style="margin-bottom: 25px;">
+            <span class="bullet">&bull;</span> Insulation Resistance Test &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+        </div>
+        <table>
+            <tr>
+                <th style="width: 30%;">Voltage Applied Across</th>
+                <th style="width: 30%;">Voltage Applied</th>
+                <th style="width: 40%;">Measured<br>IR Value</th>
+            </tr>
+            <tr>
+                <td>Primary to Earth</td>
+                <td><input type="text" value="5 KV"></td>
+                <td><input type="text" value="OK"></td>
+            </tr>
+            <tr>
+                <td>Primary to Core 1</td>
+                <td><input type="text" value="500 V"></td>
+                <td><input type="text" value="OK"></td>
+            </tr>
+            <tr>
+                <td>Primary to Core 2</td>
+                <td><input type="text" value="500 V"></td>
+                <td><input type="text" value="OK"></td>
+            </tr>
+            <tr>
+                <td>Core 1 to Core 2</td>
+                <td><input type="text" value="500 V"></td>
+                <td><input type="text" value="OK"></td>
+            </tr>
+            <tr>
+                <td>Core 1 to Earth</td>
+                <td><input type="text" value="500 V"></td>
+                <td><input type="text" value="OK"></td>
+            </tr>
+            <tr>
+                <td>Core 2 to Earth</td>
+                <td><input type="text" value="500 V"></td>
+                <td><input type="text" value="OK"></td>
+            </tr>
+        </table>
+
+        <!-- Remarks Footer -->
+        <div style="font-weight: bold; font-size: 16px; margin-top: 30px; display: flex;">
+            <div style="width: 120px;"><span class="bullet">&bull;</span> Remarks</div>
+            <div style="margin-right: 15px;">:</div>
+            <div style="flex-grow: 1;"><input type="text" value="Found OK" style="font-weight: bold;"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

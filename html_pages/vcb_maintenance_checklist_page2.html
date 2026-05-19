@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCB Maintenance Check List - Page 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #007bb8;
+            --border-color: #333;
+            --bg-color: #f4f7f9;
+            --page-bg: #ffffff;
+            --text-color: #1a1a1a;
+        }
+
+        * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .page-container { width: 100%; max-width: 900px; display: flex; flex-direction: column; gap: 50px; }
+
+        .report-page {
+            background: var(--page-bg);
+            padding: 40px;
+            min-height: 297mm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            position: relative;
+            width: 100%;
+        }
+
+        .section-header { font-size: 12px; font-weight: 700; margin: 15px 0 5px 0; display: flex; align-items: baseline; }
+        .section-header span { margin-right: 10px; }
+
+        table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 11px; }
+        th, td { border: 1px solid var(--border-color); padding: 6px 8px; text-align: left; }
+        .bg-gray { background-color: #f9f9f9; }
+        .text-center { text-align: center; }
+        .font-bold { font-weight: 600; }
+
+        [contenteditable="true"] { outline: none; min-height: 1.2em; cursor: text; transition: background-color 0.2s; }
+        [contenteditable="true"]:hover { background-color: rgba(0, 123, 184, 0.05); }
+        [contenteditable="true"]:focus { background-color: #fff; box-shadow: inset 0 0 0 1px var(--secondary-color); }
+
+        @media print {
+            body { background: none; padding: 0; gap: 0; }
+            .report-page { box-shadow: none; margin: 0; padding: 10mm; page-break-after: always; border: none; }
+            .page-container { gap: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="report-page">
+
+            <div class="section-header"><span>3.0</span> VI Details :</div>
+            <table>
+                <tr class="text-center"><td contenteditable="true" data-field="VI Details R Type"></td><td contenteditable="true" data-field="VI Details Y Type"></td><td contenteditable="true" data-field="VI Details B Type"></td></tr>
+                <tr class="text-center"><td contenteditable="true" data-field="VI Details R Serial"></td><td contenteditable="true" data-field="VI Details Y Serial"></td><td contenteditable="true" data-field="VI Details B Serial"></td></tr>
+            </table>
+
+            <div class="section-header"><span>4.0</span> IR Test :</div>
+            <table>
+                <tr class="bg-gray text-center font-bold">
+                    <td>Phase to Earth (close condition)</td><td>Value in Ω</td>
+                    <td>Phase to Phase</td><td>Value in Ω</td>
+                    <td>Open Cond. Top-Bottom</td><td>Value in Ω</td>
+                </tr>
+                <tr class="text-center"><td>RE</td><td contenteditable="true" data-field="IR RE"></td><td>RY</td><td contenteditable="true" data-field="IR RY"></td><td>RR</td><td contenteditable="true" data-field="IR RR"></td></tr>
+                <tr class="text-center"><td>YE</td><td contenteditable="true" data-field="IR YE"></td><td>YB</td><td contenteditable="true" data-field="IR YB"></td><td>YY</td><td contenteditable="true" data-field="IR YY"></td></tr>
+                <tr class="text-center"><td>BE</td><td contenteditable="true" data-field="IR BE"></td><td>BR</td><td contenteditable="true" data-field="IR BR"></td><td>BB</td><td contenteditable="true" data-field="IR BB"></td></tr>
+            </table>
+
+            <div style="margin-top: 15px; font-size: 11px;">
+                <span class="font-bold">Remark:-</span>
+                <span contenteditable="true" data-field="Remark"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
